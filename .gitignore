@@ -231,3 +231,21 @@ Development/DvlErrLog.txt
 *.db-shm
 *.db-wal
 *.vsidx
+
+# VS/IDE
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+slnx.sqlite
+
+# Build
+[Bb]in/
+[Oo]bj/
+artifacts/
+packages/
+
+# Logs/others
+*.log
+*.cache

@@ -316,6 +316,13 @@
     <Compile Include="GXSerialMonitor.Designer.cs">
       <DependentUpon>GXSerialMonitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Director\Extensions\ModeC\ModeCTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Director\Extensions\ModeC\ModeCTool.Designer.cs">
+      <DependentUpon>ModeCTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Director\Extensions\ModeC\ModeCSerial.cs" />
     <Compile Include="GXValuesDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GXSerialMonitor.resx">
       <DependentUpon>GXSerialMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Director\Extensions\ModeC\ModeCTool.resx">
+      <DependentUpon>ModeCTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GXValuesDlg.resx">
       <DependentUpon>GXValuesDlg.cs</DependentUpon>

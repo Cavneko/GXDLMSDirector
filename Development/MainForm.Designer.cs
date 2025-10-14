@@ -149,6 +149,7 @@ namespace GXDLMSDirector
             this.dLMSTranslatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MacroEditorMnu = new System.Windows.Forms.ToolStripMenuItem();
             this.serialMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modeCToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HdlcAddressResolverMnu = new System.Windows.Forms.ToolStripMenuItem();
             this.PlcDiscoverMnu = new System.Windows.Forms.ToolStripMenuItem();
             this.EcdsaKeysMnu = new System.Windows.Forms.ToolStripMenuItem();
@@ -977,6 +978,7 @@ namespace GXDLMSDirector
             this.dLMSTranslatorToolStripMenuItem,
             this.MacroEditorMnu,
             this.serialMonitorToolStripMenuItem,
+            this.modeCToolToolStripMenuItem,
             this.HdlcAddressResolverMnu,
             this.PlcDiscoverMnu,
             this.EcdsaKeysMnu,
@@ -1091,6 +1093,14 @@ namespace GXDLMSDirector
             this.serialMonitorToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.serialMonitorToolStripMenuItem.Text = "Serial Monitor...";
             this.serialMonitorToolStripMenuItem.Click += new System.EventHandler(this.serialMonitorToolStripMenuItem_Click);
+            // 
+            // modeCToolToolStripMenuItem
+            // 
+            // CUSTOM: Mode C Tool customization to ease future upstream merges.
+            this.modeCToolToolStripMenuItem.Name = "modeCToolToolStripMenuItem";
+            this.modeCToolToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.modeCToolToolStripMenuItem.Text = "Mode C Tool";
+            this.modeCToolToolStripMenuItem.Click += new System.EventHandler(this.modeCToolToolStripMenuItem_Click);
             // 
             // HdlcAddressResolverMnu
             // 
@@ -3162,6 +3172,7 @@ namespace GXDLMSDirector
         private System.Windows.Forms.ToolStripMenuItem AddToScheduleMenu;
         private System.Windows.Forms.ToolStripMenuItem dLMSTranslatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serialMonitorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modeCToolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MacroEditorMnu;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem33;
         private System.Windows.Forms.ToolStripMenuItem UseMeterTimeZoneMnu;
@@ -3183,4 +3194,3 @@ namespace GXDLMSDirector
         private System.Windows.Forms.Label BroadcastKeyLbl;
     }
 }
-

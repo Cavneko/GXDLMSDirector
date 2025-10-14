@@ -57,6 +57,7 @@ using System.Reflection;
 using System.Deployment.Application;
 using Gurux.DLMS.Objects.Enums;
 using GXDLMSDirector.Macro;
+using Director.Extensions.ModeC; // CUSTOM: Mode C Tool customization to ease future upstream merges.
 using Gurux.DLMS.UI.Ecdsa;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -83,6 +84,10 @@ namespace GXDLMSDirector
         /// </summary>
         GXDLMSTranslator traceTranslator;
         Form[] addInForms = null;
+        // CUSTOM: Mode C Tool customization to ease future upstream merges.
+        TabPage modeCToolTab;
+        ModeCTool modeCToolControl;
+        bool modeCToolActive;
 
         delegate void CheckUpdatesEventHandler(MainForm form);
         GXAsyncWork TransactionWork;
@@ -541,12 +546,17 @@ namespace GXDLMSDirector
                     }
                 }
 
-                DeviceListView.Visible = obj is GXDLMSMeterCollection;
+                bool meterCollectionSelected = obj is GXDLMSMeterCollection;
+                bool meterSelected = obj is GXDLMSMeter;
+                bool objectCollectionSelected = obj is GXDLMSObjectCollection;
+                bool singleObjectSelected = obj is GXDLMSObject;
+
+                DeviceListView.Visible = meterCollectionSelected;
                 //If device is selected.
-                DeviceInfoView.Visible = obj is GXDLMSMeter;
-                tabControl2.Visible = obj is GXDLMSObject;
-                ObjectValueView.Visible = obj is GXDLMSObjectCollection;
-                if (DeviceListView.Visible)
+                DeviceInfoView.Visible = meterSelected;
+                tabControl2.Visible = singleObjectSelected;
+                ObjectValueView.Visible = objectCollectionSelected;
+                if (meterCollectionSelected)
                 {
                     if (activeDC == null)
                     {
@@ -560,7 +570,7 @@ namespace GXDLMSDirector
                     DeleteMnu.Enabled = DeleteBtn.Enabled = OptionsBtn.Enabled = false;
                     DeviceInfoView.BringToFront();
                 }
-                else if (DeviceInfoView.Visible)
+                else if (meterSelected)
                 {
                     SaveAsTemplateBtn.Enabled = true;
                     GXDLMSMeter dev = (GXDLMSMeter)obj;
@@ -621,7 +631,7 @@ namespace GXDLMSDirector
                         }
                     }
                 }
-                else if (ObjectValueView.Visible)
+                else if (objectCollectionSelected)
                 {
                     ObjectValueView.BringToFront();
                     SaveAsTemplateBtn.Enabled = true;
@@ -832,6 +842,8 @@ namespace GXDLMSDirector
                     }
                     ShowLastErrors(obj as GXDLMSObject);
                 }
+                // CUSTOM: Mode C Tool customization to ease future upstream merges.
+                EnsureModeCToolTabPresence();
             }
             catch (Exception Ex)
             {
@@ -7266,6 +7278,46 @@ namespace GXDLMSDirector
                 Error.ShowError(this, Ex);
             }
 
+        }
+
+        private void modeCToolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // CUSTOM: Mode C Tool customization to ease future upstream merges.
+            modeCToolActive = true;
+            EnsureModeCToolTabPresence();
+            if (modeCToolTab != null)
+            {
+                DeviceInfoView.SelectedTab = modeCToolTab;
+                DeviceInfoView.BringToFront();
+            }
+        }
+
+        private void EnsureModeCToolTabPresence()
+        {
+            if (!modeCToolActive)
+            {
+                return;
+            }
+
+            if (modeCToolTab == null || modeCToolTab.IsDisposed)
+            {
+                modeCToolTab = new TabPage("Mode C Tool");
+            }
+            if (modeCToolControl == null || modeCToolControl.IsDisposed)
+            {
+                modeCToolControl = new ModeCTool();
+                modeCToolControl.Dock = DockStyle.Fill;
+            }
+            if (!modeCToolTab.Controls.Contains(modeCToolControl))
+            {
+                modeCToolTab.Controls.Clear();
+                modeCToolTab.Controls.Add(modeCToolControl);
+            }
+            if (!DeviceInfoView.TabPages.Contains(modeCToolTab))
+            {
+                DeviceInfoView.TabPages.Add(modeCToolTab);
+            }
+            DeviceInfoView.Visible = true;
         }
 
         /// <summary>

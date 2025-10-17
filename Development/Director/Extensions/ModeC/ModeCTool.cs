@@ -18,6 +18,23 @@ namespace Director.Extensions.ModeC
         {
             InitializeComponent();
         }
+        private bool IsValidObis(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return false;
+
+            string[] parts = input.Split('.');
+            if (parts.Length != 3) return false;
+
+            foreach (string part in parts)
+            {
+                if (!int.TryParse(part, out int value)) return false;
+
+                if (part.Length < 1 || part.Length > 3) return false;
+
+                if (value < 0 || value > 255) return false;
+            }
+            return true;
+        }
 
         private void ModeCTool_Load(object sender, EventArgs e)
         {
@@ -42,9 +59,22 @@ namespace Director.Extensions.ModeC
                 return;
             }
 
+            string obis = txtObis.Text ?? string.Empty;
+            if (string.IsNullOrWhiteSpace(obis))
+            {
+                Log("[ERR] Input an obis code first.");
+                return;
+            }
+
+            if (!IsValidObis(obis))
+            {
+                Log("[ERR] Invalid obis code.");
+                return;
+            }
+
             int guard = (int)numGuard.Value;
             string password = txtPassword.Text ?? string.Empty;
-            await RunOperationAsync(() => PerformRead180(port, guard, password));
+            await RunOperationAsync(() => PerformCommand(port, guard, password, obis));
         }
 
         private void RefreshPorts()
@@ -139,8 +169,10 @@ namespace Director.Extensions.ModeC
             txtPassword.Enabled = !busy;
         }
 
-        private void PerformRead180(string portName, int guardMilliseconds, string password)
+        private void PerformCommand(string portName, int guardMilliseconds, string password, string obis, string data = null)
         {
+            bool isWrite = !string.IsNullOrEmpty(data);
+
             ModeCSerial previous = DetachCurrentSerial();
             if (previous != null)
             {
@@ -179,7 +211,7 @@ namespace Director.Extensions.ModeC
                 newSerial.SwitchToHighSpeed();
                 Log("[SWITCH] 19200 7E1 DTR=1 RTS=0");
 
-                Thread.Sleep(10);
+                Thread.Sleep(100);
 
                 byte[] p0Response = null;
                 try
@@ -238,19 +270,50 @@ namespace Director.Extensions.ModeC
                     Log("[ERR] Timeout waiting ACK for P1.");
                 }
 
-                byte[] frame = ModeCSerial.BuildR1_180();
-                LogFrame("R1", "TX", frame);
-                newSerial.Write(frame);
+                if (isWrite)
+                {
+                    byte[] frame = ModeCSerial.BuildW1(obis, data);
+                    LogFrame("W1", "TX", frame);
+                    newSerial.Write(frame);
+                }
+                else
+                {
+                    byte[] frame = ModeCSerial.BuildR1(obis);
+                    LogFrame("R1", "TX", frame);
+                    newSerial.Write(frame);
+                }
 
                 byte[] response = null;
                 try
                 {
-                    response = newSerial.ReadUntilEtxThenBcc(1200);
-                    LogFrame("R1", "RX", response);
+                    if (isWrite)
+                    {
+                        int value = newSerial.ReadByteWithTimeout(1200);
+                        if (value == 0x06)
+                        {
+                            Log("[R1] RX: ACK");
+                        }
+                        else if (value >= 0)
+                        {
+                            LogFrame("R1", "RX", new[] { (byte)value });
+                        }
+                    }
+                    else
+                    {
+                        response = newSerial.ReadUntilEtxThenBcc(1200);
+                        LogFrame("R1", "RX", response);
+                    }
                 }
                 catch (TimeoutException)
                 {
-                    Log("[ERR] Timeout waiting response for R1.");
+                    if (isWrite)
+                    {
+                        Log("[ERR] Timeout waiting for W1 response.");
+                    }
+                    else
+                    {
+                        Log("[ERR] Timeout waiting for R1 response.");
+                    }
                 }
 
                 if (response != null)
@@ -273,7 +336,7 @@ namespace Director.Extensions.ModeC
                         }
                         else
                         {
-                            byte expectedBcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(payload, stxIndex, etxIndex - stxIndex + 1));
+                            byte expectedBcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(payload, stxIndex + 1, etxIndex - stxIndex));
                             if (receivedBcc != expectedBcc)
                             {
                                 Log($"[ERR] BCC mismatch. Expected {expectedBcc:X2}, received {receivedBcc:X2}.");
@@ -319,7 +382,8 @@ namespace Director.Extensions.ModeC
                 {
                     try
                     {
-                        if (sessionReady && !closeSent && newSerial.IsOpen)
+                        Log($"[DEBUG] sessionReady: {sessionReady}, closeSent: {closeSent}, newSerial.IsOpen: {newSerial.IsOpen}");
+                        if (/*sessionReady &&*/ !closeSent && newSerial.IsOpen)
                         {
                             byte[] closeFrame = ModeCSerial.BuildB0();
                             LogFrame("B0", "TX", closeFrame);
@@ -468,6 +532,51 @@ namespace Director.Extensions.ModeC
                 }
             }
             return sb.ToString();
+        }
+
+        private async void btnWrite_Click(object sender, EventArgs e)
+        {
+            string port = cmbPort.SelectedItem as string;
+            if (string.IsNullOrWhiteSpace(port))
+            {
+                Log("[ERR] Select a serial port first.");
+                return;
+            }
+
+            string obis = txtObis.Text ?? string.Empty;
+            if (string.IsNullOrWhiteSpace(obis))
+            {
+                Log("[ERR] Input an obis code first.");
+                return;
+            }
+
+            if (!IsValidObis(obis))
+            {
+                Log("[ERR] Invalid obis code.");
+                return;
+            }
+
+            string data = txtData.Text ?? string.Empty;
+            if (string.IsNullOrWhiteSpace(data))
+            {
+                Log("[ERR] Missing data input.");
+                return;
+            }
+
+            int guard = (int)numGuard.Value;
+            string password = txtPassword.Text ?? string.Empty;
+            await RunOperationAsync(() => PerformCommand(port, guard, password, obis, data));
+        }
+
+        private void txtObis_TextChanged(object sender, EventArgs e)
+        {
+            if (IsValidObis(txtObis.Text))
+            {
+                txtObis.BackColor = System.Drawing.Color.White;
+            }
+            else {
+                txtObis.BackColor = System.Drawing.Color.LightCoral;
+            }
         }
     }
 }

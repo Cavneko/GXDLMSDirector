@@ -320,13 +320,29 @@ namespace Director.Extensions.ModeC
             return frame;
         }
 
-        public static byte[] BuildR1_180()
+        public static byte[] BuildR1(string obis)
         {
-            byte[] payload = Encoding.ASCII.GetBytes("1.8.0()");
+            byte[] payload = Encoding.ASCII.GetBytes($"{obis}()");
             byte[] frame = new byte[1 + 2 + 1 + payload.Length + 1 + 1];
             int index = 0;
             frame[index++] = 0x01;
             frame[index++] = (byte)'R';
+            frame[index++] = (byte)'1';
+            frame[index++] = 0x02;
+            Buffer.BlockCopy(payload, 0, frame, index, payload.Length);
+            index += payload.Length;
+            frame[index++] = 0x03;
+            byte bcc = ComputeBcc(new ReadOnlySpan<byte>(frame, 1, index - 1));
+            frame[index] = bcc;
+            return frame;
+        }
+        public static byte[] BuildW1(string obis, string data)
+        {
+            byte[] payload = Encoding.ASCII.GetBytes($"{obis}({data})");
+            byte[] frame = new byte[1 + 2 + 1 + payload.Length + 1 + 1];
+            int index = 0;
+            frame[index++] = 0x01;
+            frame[index++] = (byte)'W';
             frame[index++] = (byte)'1';
             frame[index++] = 0x02;
             Buffer.BlockCopy(payload, 0, frame, index, payload.Length);

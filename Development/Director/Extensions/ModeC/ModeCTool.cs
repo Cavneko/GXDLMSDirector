@@ -382,7 +382,6 @@ namespace Director.Extensions.ModeC
                 {
                     try
                     {
-                        Log($"[DEBUG] sessionReady: {sessionReady}, closeSent: {closeSent}, newSerial.IsOpen: {newSerial.IsOpen}");
                         if (/*sessionReady &&*/ !closeSent && newSerial.IsOpen)
                         {
                             byte[] closeFrame = ModeCSerial.BuildB0();

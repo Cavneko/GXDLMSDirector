@@ -39,23 +39,26 @@ namespace Director.Extensions.ModeC
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblGuard = new System.Windows.Forms.Label();
             this.numGuard = new System.Windows.Forms.NumericUpDown();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.lblResult = new System.Windows.Forms.Label();
             this.lblObis = new System.Windows.Forms.Label();
             this.txtObis = new System.Windows.Forms.TextBox();
             this.lblData = new System.Windows.Forms.Label();
             this.txtData = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnRead = new System.Windows.Forms.Button();
-            this.btnWrite = new System.Windows.Forms.Button();
+            this.treeObis = new System.Windows.Forms.TreeView();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbMode = new System.Windows.Forms.ComboBox();
+            this.btnRun = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtLog = new System.Windows.Forms.TextBox();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.lblResult = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numGuard)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -71,7 +74,7 @@ namespace Director.Extensions.ModeC
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.txtLog);
+            this.splitContainer.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer.Size = new System.Drawing.Size(800, 450);
             this.splitContainer.SplitterDistance = 285;
             this.splitContainer.TabIndex = 0;
@@ -87,13 +90,12 @@ namespace Director.Extensions.ModeC
             this.tableLayoutPanel.Controls.Add(this.txtPassword, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.lblGuard, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.numGuard, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.txtResult, 1, 6);
-            this.tableLayoutPanel.Controls.Add(this.lblResult, 0, 6);
             this.tableLayoutPanel.Controls.Add(this.lblObis, 0, 3);
             this.tableLayoutPanel.Controls.Add(this.txtObis, 1, 3);
-            this.tableLayoutPanel.Controls.Add(this.lblData, 0, 4);
-            this.tableLayoutPanel.Controls.Add(this.txtData, 1, 4);
-            this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 5);
+            this.tableLayoutPanel.Controls.Add(this.lblData, 0, 5);
+            this.tableLayoutPanel.Controls.Add(this.txtData, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.treeObis, 0, 4);
+            this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 0, 6);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -102,9 +104,10 @@ namespace Director.Extensions.ModeC
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel.Size = new System.Drawing.Size(285, 450);
             this.tableLayoutPanel.TabIndex = 0;
             // 
@@ -178,28 +181,6 @@ namespace Director.Extensions.ModeC
             0,
             0});
             // 
-            // txtResult
-            // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Location = new System.Drawing.Point(83, 193);
-            this.txtResult.Multiline = true;
-            this.txtResult.Name = "txtResult";
-            this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(199, 254);
-            this.txtResult.TabIndex = 8;
-            this.txtResult.TabStop = false;
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblResult.Location = new System.Drawing.Point(3, 190);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(74, 260);
-            this.lblResult.TabIndex = 7;
-            this.lblResult.Text = "Result:";
-            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblObis
             // 
             this.lblObis.AutoSize = true;
@@ -224,7 +205,7 @@ namespace Director.Extensions.ModeC
             // 
             this.lblData.AutoSize = true;
             this.lblData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblData.Location = new System.Drawing.Point(3, 120);
+            this.lblData.Location = new System.Drawing.Point(3, 380);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(74, 30);
             this.lblData.TabIndex = 12;
@@ -234,64 +215,121 @@ namespace Director.Extensions.ModeC
             // txtData
             // 
             this.txtData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtData.Location = new System.Drawing.Point(83, 123);
+            this.txtData.Location = new System.Drawing.Point(83, 383);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(199, 20);
             this.txtData.TabIndex = 5;
             // 
-            // tableLayoutPanel1
+            // treeObis
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 2);
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btnRead, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnWrite, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 153);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(279, 34);
-            this.tableLayoutPanel1.TabIndex = 14;
+            this.treeObis.CheckBoxes = true;
+            this.tableLayoutPanel.SetColumnSpan(this.treeObis, 2);
+            this.treeObis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeObis.Location = new System.Drawing.Point(3, 123);
+            this.treeObis.Name = "treeObis";
+            this.treeObis.Size = new System.Drawing.Size(279, 254);
+            this.treeObis.TabIndex = 15;
+            this.treeObis.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeObis_AfterCheck);
+            this.treeObis.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeObis_BeforeCollapse);
+            this.treeObis.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeObis_BeforeExpand);
             // 
-            // btnRead
+            // tableLayoutPanel3
             // 
-            this.btnRead.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRead.Location = new System.Drawing.Point(10, 3);
-            this.btnRead.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(119, 28);
-            this.btnRead.TabIndex = 6;
-            this.btnRead.Text = "Read";
-            this.btnRead.UseVisualStyleBackColor = true;
-            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel3, 2);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.cmbMode, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnRun, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 413);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(279, 34);
+            this.tableLayoutPanel3.TabIndex = 16;
             // 
-            // btnWrite
+            // cmbMode
             // 
-            this.btnWrite.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnWrite.Location = new System.Drawing.Point(149, 3);
-            this.btnWrite.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(120, 28);
-            this.btnWrite.TabIndex = 7;
-            this.btnWrite.Text = "Write";
-            this.btnWrite.UseVisualStyleBackColor = true;
-            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
+            this.cmbMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMode.FormattingEnabled = true;
+            this.cmbMode.Items.AddRange(new object[] {
+            "Read",
+            "Write",
+            "Execute"});
+            this.cmbMode.Location = new System.Drawing.Point(3, 3);
+            this.cmbMode.Name = "cmbMode";
+            this.cmbMode.Size = new System.Drawing.Size(133, 21);
+            this.cmbMode.TabIndex = 0;
+            this.cmbMode.SelectedIndexChanged += new System.EventHandler(this.cmbMode_SelectedIndexChanged);
+            // 
+            // btnRun
+            // 
+            this.btnRun.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRun.Location = new System.Drawing.Point(149, 3);
+            this.btnRun.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(120, 28);
+            this.btnRun.TabIndex = 1;
+            this.btnRun.Text = "Run";
+            this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.txtLog, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtResult, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblResult, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(511, 450);
+            this.tableLayoutPanel2.TabIndex = 10;
             // 
             // txtLog
             // 
+            this.tableLayoutPanel2.SetColumnSpan(this.txtLog, 2);
             this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLog.Font = new System.Drawing.Font("Consolas", 9F);
-            this.txtLog.Location = new System.Drawing.Point(0, 0);
+            this.txtLog.Location = new System.Drawing.Point(3, 3);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(511, 450);
+            this.txtLog.Size = new System.Drawing.Size(505, 286);
             this.txtLog.TabIndex = 9;
             this.txtLog.TabStop = false;
             this.txtLog.WordWrap = false;
+            // 
+            // txtResult
+            // 
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResult.Location = new System.Drawing.Point(63, 295);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
+            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtResult.Size = new System.Drawing.Size(445, 152);
+            this.txtResult.TabIndex = 8;
+            this.txtResult.TabStop = false;
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblResult.Location = new System.Drawing.Point(3, 292);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(54, 158);
+            this.lblResult.TabIndex = 7;
+            this.lblResult.Text = "Result:";
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ModeCTool
             // 
@@ -303,13 +341,14 @@ namespace Director.Extensions.ModeC
             this.Load += new System.EventHandler(this.ModeCTool_Load);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
-            this.splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numGuard)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -324,7 +363,6 @@ namespace Director.Extensions.ModeC
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblGuard;
         private System.Windows.Forms.NumericUpDown numGuard;
-        private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.TextBox txtLog;
@@ -332,7 +370,10 @@ namespace Director.Extensions.ModeC
         private System.Windows.Forms.TextBox txtObis;
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.TextBox txtData;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnWrite;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TreeView treeObis;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.ComboBox cmbMode;
+        private System.Windows.Forms.Button btnRun;
     }
 }

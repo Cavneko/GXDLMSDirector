@@ -285,6 +285,7 @@
     <Compile Include="ConformanceTests\Settings\GXConformanceGuruxSettings.cs" />
     <Compile Include="ConformanceTests\Settings\GXConformanceSettings.cs" />
     <Compile Include="ConformanceTests\Settings\IGXConformanceSettings.cs" />
+    <Compile Include="Director\Extensions\ModeC\ObisEntry.cs" />
     <Compile Include="GXByteConverter.cs" />
     <Compile Include="GXHdlcAddressesResolverDlg.cs">
       <SubType>Form</SubType>
@@ -545,6 +546,9 @@
     <None Include="Resources\DeleteMnu.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Director\Extensions\ModeC\obis_list.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\OpenMnu.bmp" />
   </ItemGroup>
   <ItemGroup>

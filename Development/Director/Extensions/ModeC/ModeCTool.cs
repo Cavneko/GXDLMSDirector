@@ -4,6 +4,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+using System.IO;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+using System.CodeDom.Compiler;
 
 namespace Director.Extensions.ModeC
 {
@@ -13,27 +19,12 @@ namespace Director.Extensions.ModeC
         private readonly object serialGate = new object();
         private ModeCSerial serial;
         private int operationRunning;
+        private List<ObisEntry> obisEntries;
+        private HashSet<string> expandedCategories = new HashSet<string>();
 
         public ModeCTool()
         {
             InitializeComponent();
-        }
-        private bool IsValidObis(string input)
-        {
-            if (string.IsNullOrEmpty(input)) return false;
-
-            string[] parts = input.Split('.');
-            if (parts.Length != 3) return false;
-
-            foreach (string part in parts)
-            {
-                if (!int.TryParse(part, out int value)) return false;
-
-                if (part.Length < 1 || part.Length > 3) return false;
-
-                if (value < 0 || value > 255) return false;
-            }
-            return true;
         }
 
         private void ModeCTool_Load(object sender, EventArgs e)
@@ -42,39 +33,14 @@ namespace Director.Extensions.ModeC
             {
                 RefreshPorts();
                 UpdateControlState();
+                LoadObis();
+                PopulateObisTree();
             }
         }
 
         private void cmbPort_DropDown(object sender, EventArgs e)
         {
             RefreshPorts();
-        }
-
-        private async void btnRead_Click(object sender, EventArgs e)
-        {
-            string port = cmbPort.SelectedItem as string;
-            if (string.IsNullOrWhiteSpace(port))
-            {
-                Log("[ERR] Select a serial port first.");
-                return;
-            }
-
-            string obis = txtObis.Text ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(obis))
-            {
-                Log("[ERR] Input an obis code first.");
-                return;
-            }
-
-            if (!IsValidObis(obis))
-            {
-                Log("[ERR] Invalid obis code.");
-                return;
-            }
-
-            int guard = (int)numGuard.Value;
-            string password = txtPassword.Text ?? string.Empty;
-            await RunOperationAsync(() => PerformCommand(port, guard, password, obis));
         }
 
         private void RefreshPorts()
@@ -163,26 +129,26 @@ namespace Director.Extensions.ModeC
             }
 
             bool busy = Volatile.Read(ref operationRunning) != 0;
-            btnRead.Enabled = !busy;
+            btnRun.Enabled = !busy;
             cmbPort.Enabled = !busy;
             numGuard.Enabled = !busy;
             txtPassword.Enabled = !busy;
         }
 
-        private void PerformCommand(string portName, int guardMilliseconds, string password, string obis, string data = null)
+        private void PerformCommand(string portName, int guardMilliseconds, string password, string mode, List<ObisEntry> CheckedEntries, string data)
         {
-            bool isWrite = !string.IsNullOrEmpty(data);
-
             ModeCSerial previous = DetachCurrentSerial();
             if (previous != null)
             {
                 previous.Dispose();
             }
-            SetResultText(string.Empty);
+            SetResultText(null);
 
             ModeCSerial newSerial = null;
             bool sessionReady = false;
             bool closeSent = false;
+            Dictionary<string, string> results = new Dictionary<string, string>();
+
             try
             {
                 newSerial = new ModeCSerial(portName)
@@ -270,91 +236,139 @@ namespace Director.Extensions.ModeC
                     Log("[ERR] Timeout waiting ACK for P1.");
                 }
 
-                if (isWrite)
+                byte[] frame = null;
+                string obis;
+                foreach (ObisEntry obisEntry in CheckedEntries)
                 {
-                    byte[] frame = ModeCSerial.BuildW1(obis, data);
-                    LogFrame("W1", "TX", frame);
-                    newSerial.Write(frame);
-                }
-                else
-                {
-                    byte[] frame = ModeCSerial.BuildR1(obis);
-                    LogFrame("R1", "TX", frame);
-                    newSerial.Write(frame);
-                }
-
-                byte[] response = null;
-                try
-                {
-                    if (isWrite)
+                    obis = obisEntry.Obis;
+                    switch (mode) 
                     {
-                        int value = newSerial.ReadByteWithTimeout(1200);
-                        if (value == 0x06)
+                        case "Write":
+                            frame = ModeCSerial.BuildW1(obis, data);
+                            LogFrame("W1", "TX", frame);
+                            newSerial.Write(frame);
+                            break;
+                        case "Read":
+                            frame = ModeCSerial.BuildR1(obis);
+                            LogFrame("R1", "TX", frame);
+                            newSerial.Write(frame);
+                            break;
+                        case "Execute":
+                            frame = ModeCSerial.BuildE2(obis, data);
+                            LogFrame("E2", "TX", frame);
+                            newSerial.Write(frame);
+                            break;
+                        default: 
+                            break;
+                    }
+
+                    byte[] response = null;
+                    try
+                    {
+                        switch (mode)
                         {
-                            Log("[R1] RX: ACK");
+                            case "Write":
+                                int writeValue = newSerial.ReadByteWithTimeout(1200);
+                                if (writeValue == 0x06)
+                                {
+                                    Log("[W1] RX: ACK");
+                                    results.Add(obisEntry.Obis, "ACK");
+                                }
+                                else if (writeValue == 0x15)
+                                {
+                                    Log("[W1] RX: NAK");
+                                    results.Add(obisEntry.Obis, "NAK");
+                                }
+                                else if (writeValue > 0)
+                                {
+                                    LogFrame("W1", "RX", new[] { (byte)writeValue });
+                                }
+                                break;
+                            case "Read":
+                                response = newSerial.ReadUntilEtxThenBcc(1200);
+                                LogFrame("R1", "RX", response);
+                                break;
+                            case "Execute":
+                                int executeValue = newSerial.ReadByteWithTimeout(1200);
+                                if (executeValue == 0x06)
+                                {
+                                    Log("E2 RX: ACK");
+                                    results.Add(obisEntry.Obis, "ACK");
+                                }
+                                else if (executeValue == 0x15)
+                                {
+                                    Log("E2: RX: NAK");
+                                    results.Add(obisEntry.Obis, "NAK");
+                                }
+                                else if (executeValue >= 0)
+                                {
+                                    LogFrame("E2", "RX", new[] { (byte)executeValue });
+                                }
+                                break;
+                            default:
+                                break;
                         }
-                        else if (value >= 0)
+                    }
+                    catch (TimeoutException)
+                    {
+                        switch (mode)
                         {
-                            LogFrame("R1", "RX", new[] { (byte)value });
+                            case "Write":
+                                Log("[ERR] Timeout waiting for W1 response.");
+                                break;
+                            case "Read":
+                                Log("[ERR] Timeout waiting for R1 response.");
+                                break;
+                            case "Execute":
+                                Log("[ERR] Timeout waitinf for E2 response.");
+                                break;
+                            default:
+                                break;
                         }
                     }
-                    else
-                    {
-                        response = newSerial.ReadUntilEtxThenBcc(1200);
-                        LogFrame("R1", "RX", response);
-                    }
-                }
-                catch (TimeoutException)
-                {
-                    if (isWrite)
-                    {
-                        Log("[ERR] Timeout waiting for W1 response.");
-                    }
-                    else
-                    {
-                        Log("[ERR] Timeout waiting for R1 response.");
-                    }
-                }
 
-                if (response != null)
-                {
-                    if (response.Length < 2)
+                    if (response != null)
                     {
-                        Log("[ERR] Response too short.");
-                    }
-                    else
-                    {
-                        byte receivedBcc = response[response.Length - 1];
-                        byte[] payload = new byte[response.Length - 1];
-                        Buffer.BlockCopy(response, 0, payload, 0, payload.Length);
-
-                        int stxIndex = Array.IndexOf(payload, (byte)0x02);
-                        int etxIndex = Array.IndexOf(payload, (byte)0x03);
-                        if (stxIndex < 0 || etxIndex <= stxIndex)
+                        if (response.Length < 2)
                         {
-                            Log("[ERR] Unexpected response format.");
+                            Log("[ERR] Response too short.");
                         }
                         else
                         {
-                            byte expectedBcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(payload, stxIndex + 1, etxIndex - stxIndex));
-                            if (receivedBcc != expectedBcc)
-                            {
-                                Log($"[ERR] BCC mismatch. Expected {expectedBcc:X2}, received {receivedBcc:X2}.");
-                            }
+                            byte receivedBcc = response[response.Length - 1];
+                            byte[] payload = new byte[response.Length - 1];
+                            Buffer.BlockCopy(response, 0, payload, 0, payload.Length);
 
-                            string ascii = Encoding.ASCII.GetString(payload, stxIndex + 1, etxIndex - stxIndex - 1);
-                            string value = ExtractValue(ascii);
-                            if (value != null)
+                            int stxIndex = Array.IndexOf(payload, (byte)0x02);
+                            int etxIndex = Array.IndexOf(payload, (byte)0x03);
+                            if (stxIndex < 0 || etxIndex <= stxIndex)
                             {
-                                SetResultText(value);
+                                Log("[ERR] Unexpected response format.");
                             }
                             else
                             {
-                                Log($"[ERR] Cannot parse value from '{ascii}'.");
+                                byte expectedBcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(payload, stxIndex + 1, etxIndex - stxIndex));
+                                if (receivedBcc != expectedBcc)
+                                {
+                                    Log($"[ERR] BCC mismatch. Expected {expectedBcc:X2}, received {receivedBcc:X2}.");
+                                }
+
+                                string ascii = Encoding.ASCII.GetString(payload, stxIndex + 1, etxIndex - stxIndex - 1);
+                                string value = ExtractValue(ascii);
+                                if (value != null)
+                                {
+                                    results.Add(obisEntry.Obis, value);
+                                }
+                                else
+                                {
+                                    Log($"[ERR] Cannot parse value from '{ascii}'.");
+                                }
                             }
                         }
                     }
                 }
+
+                SetResultText(results);
 
                 if (sessionReady && newSerial.IsOpen)
                 {
@@ -446,14 +460,27 @@ namespace Director.Extensions.ModeC
             return ascii.Substring(start + 1, end - start - 1);
         }
 
-        private void SetResultText(string value)
+        private void SetResultText(Dictionary<string, string> results)
         {
             if (InvokeRequired)
             {
-                BeginInvoke(new Action<string>(SetResultText), value);
+                BeginInvoke(new Action<Dictionary<string, string>>(SetResultText), results);
                 return;
             }
-            txtResult.Text = value ?? string.Empty;
+
+            if (results == null || results.Count == 0)
+            {
+                txtResult.Text = string.Empty;
+                return;
+            }
+
+            var sb = new StringBuilder();
+            foreach (var kvp in results)
+            {
+                sb.AppendLine($"{kvp.Key}: {kvp.Value}");
+            }
+
+            txtResult.Text = sb.ToString();
         }
 
         private void Log(string message)
@@ -533,7 +560,146 @@ namespace Director.Extensions.ModeC
             return sb.ToString();
         }
 
-        private async void btnWrite_Click(object sender, EventArgs e)
+        private void txtObis_TextChanged(object sender, EventArgs e)
+        {
+            string mode = cmbMode.SelectedItem as string;
+            string filter = txtObis.Text;
+            PopulateObisTree(mode, filter);
+        }
+        
+        private void LoadObis()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            //string resourceName = "GXDLMSDdirector46.Director.Extensions.ModeC.obis_list.json";
+            string resourceName = "GXDLMSDirector.Director.Extensions.ModeC.obis_list.json";
+
+            using (Stream stream = assembly .GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                string jsonText = reader.ReadToEnd();
+                obisEntries = JsonConvert.DeserializeObject<List<ObisEntry>>(jsonText);
+            }
+
+        }
+
+        private void PopulateObisTree(string mode = "All", string filter = null)
+        {
+            treeObis.Nodes.Clear();
+
+            var grouped = obisEntries.GroupBy(o => o.Category);
+
+            foreach (var group in grouped)
+            {
+                TreeNode categoryNode = new TreeNode(group.Key);
+                IEnumerable<ObisEntry> entries = group;
+                switch (mode)
+                {
+                    case "Read":
+                        entries = group.Where(o => o.CanRead);
+                        break;
+                    case "Write":
+                        entries = group.Where(o => o.CanWrite);
+                        break;
+                    case "Execute":
+                        entries = group.Where(o => o.CanExecute);
+                        break;
+                    case "All":
+                    default:
+                        break;
+                }
+
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    string lowerFilter = filter.ToLower();
+                    entries = entries.Where(o => 
+                        o.Name.ToLower().Contains(lowerFilter) ||
+                        o.Obis.ToLower().Contains(lowerFilter) ||
+                        o.Category.ToLower().Contains(lowerFilter)
+                    );
+                }
+
+                foreach (var entry in entries)
+                {
+                    TreeNode node = new TreeNode($"{entry.Name} [{entry.Obis}]");
+                    node.Tag = entry;
+                    categoryNode.Nodes.Add(node);
+                }
+
+                if (categoryNode.Nodes.Count > 0)
+                {
+                    treeObis.Nodes.Add(categoryNode);
+                }
+            }
+            int totalNodes = treeObis.Nodes.Count;
+            foreach (TreeNode node in treeObis.Nodes)
+            {
+                totalNodes += node.GetNodeCount(true);
+            }
+           if (totalNodes < 15)
+            {
+                treeObis.ExpandAll();
+            }
+            else
+            {
+                foreach (TreeNode node in treeObis.Nodes)
+                {
+                    if (expandedCategories.Contains(node.Text))
+                    {
+                        node.Expand();
+                    }
+                }
+            }
+        }
+
+        private void cmbMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedMode = cmbMode.SelectedItem?.ToString();
+
+            switch (selectedMode)
+            {
+                case "Read":
+                    PopulateObisTree("Read", txtObis.Text);
+                    break;
+                case "Write":
+                    PopulateObisTree("Write", txtObis.Text);
+                    break;
+                case "Execute":
+                    PopulateObisTree("Execute", txtObis.Text);
+                    break;
+                default:
+                    PopulateObisTree("All");
+                    break;
+            }
+        }
+
+        private void treeObis_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            expandedCategories.Add(e.Node.Text);
+        }
+
+        private void treeObis_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
+        {
+            expandedCategories.Remove(e.Node.Text);
+        }
+
+        private List<ObisEntry> GetCheckedObisEntry()
+        {
+            List<ObisEntry> checkedEntires = new List<ObisEntry>();
+
+            foreach (TreeNode category in treeObis.Nodes)
+            {
+                foreach (TreeNode leaf in category.Nodes)
+                {
+                    if (leaf.Checked && leaf.Tag is ObisEntry entry)
+                    {
+                        checkedEntires.Add(entry);
+                    }
+                }
+            }
+            return checkedEntires;
+        }
+
+        private async void btnRun_Click(object sender, EventArgs e)
         {
             string port = cmbPort.SelectedItem as string;
             if (string.IsNullOrWhiteSpace(port))
@@ -542,39 +708,34 @@ namespace Director.Extensions.ModeC
                 return;
             }
 
-            string obis = txtObis.Text ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(obis))
+            if (GetCheckedObisEntry().Count == 0)
             {
-                Log("[ERR] Input an obis code first.");
+                Log("[ERR] Select an obis code first.");
                 return;
             }
 
-            if (!IsValidObis(obis))
+            string mode = cmbMode.Text;
+            if (string.IsNullOrEmpty(mode))
             {
-                Log("[ERR] Invalid obis code.");
-                return;
-            }
-
-            string data = txtData.Text ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(data))
-            {
-                Log("[ERR] Missing data input.");
+                Log("[ERR] Select an action mode first.");
                 return;
             }
 
             int guard = (int)numGuard.Value;
             string password = txtPassword.Text ?? string.Empty;
-            await RunOperationAsync(() => PerformCommand(port, guard, password, obis, data));
+            List<ObisEntry> CheckedEntries = GetCheckedObisEntry();
+            string data = txtData.Text;
+            await RunOperationAsync(() => PerformCommand(port, guard, password, mode, CheckedEntries, data));
         }
 
-        private void txtObis_TextChanged(object sender, EventArgs e)
+        private void treeObis_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            if (IsValidObis(txtObis.Text))
+            if (e.Node.Tag == null)
             {
-                txtObis.BackColor = System.Drawing.Color.White;
-            }
-            else {
-                txtObis.BackColor = System.Drawing.Color.LightCoral;
+                foreach (TreeNode child in e.Node.Nodes)
+                {
+                    child.Checked = e.Node.Checked;
+                }
             }
         }
     }

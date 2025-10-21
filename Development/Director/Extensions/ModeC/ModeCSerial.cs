@@ -1,6 +1,7 @@
 // CUSTOM: Mode C Tool customization to ease future upstream merges.
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO.Ports;
 using System.Text;
 using System.Threading;
@@ -344,6 +345,22 @@ namespace Director.Extensions.ModeC
             frame[index++] = 0x01;
             frame[index++] = (byte)'W';
             frame[index++] = (byte)'1';
+            frame[index++] = 0x02;
+            Buffer.BlockCopy(payload, 0, frame, index, payload.Length);
+            index += payload.Length;
+            frame[index++] = 0x03;
+            byte bcc = ComputeBcc(new ReadOnlySpan<byte>(frame, 1, index - 1));
+            frame[index] = bcc;
+            return frame;
+        }
+        public static byte[] BuildE2(string obis, string data)
+        {
+            byte[] payload = Encoding.ASCII.GetBytes($"{obis}({data})");
+            byte[] frame = new byte[1 + 2 + 1 + payload.Length + 1 + 1];
+            int index = 0;
+            frame[index++] = 0x01;
+            frame[index++] = (byte)'E';
+            frame[index++] = (byte)'2';
             frame[index++] = 0x02;
             Buffer.BlockCopy(payload, 0, frame, index, payload.Length);
             index += payload.Length;

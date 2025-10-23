@@ -21,6 +21,7 @@ namespace Director.Extensions.ModeC
         private int operationRunning;
         private List<ObisEntry> obisEntries;
         private HashSet<string> expandedCategories = new HashSet<string>();
+        private bool isAutoExpanding = false;
 
         public ModeCTool()
         {
@@ -562,9 +563,7 @@ namespace Director.Extensions.ModeC
 
         private void txtObis_TextChanged(object sender, EventArgs e)
         {
-            string mode = cmbMode.SelectedItem as string;
-            string filter = txtObis.Text;
-            PopulateObisTree(mode, filter);
+            PopulateObisTree();
         }
         
         private void LoadObis()
@@ -582,8 +581,12 @@ namespace Director.Extensions.ModeC
 
         }
 
-        private void PopulateObisTree(string mode = "All", string filter = null)
+        private void PopulateObisTree()
         {
+            string mode = cmbMode.SelectedItem?.ToString() ?? "All";
+            string filter = txtObis.Text ?? null;
+            bool threePhase = cmbMeterType.Text?.Contains("3-Phase") ?? false;
+
             treeObis.Nodes.Clear();
 
             var grouped = obisEntries.GroupBy(o => o.Category);
@@ -608,6 +611,11 @@ namespace Director.Extensions.ModeC
                         break;
                 }
 
+                if (!threePhase)
+                {
+                    entries = entries.Where(o => !o.ThreePhase);
+                }
+
                 if (!string.IsNullOrEmpty(filter))
                 {
                     string lowerFilter = filter.ToLower();
@@ -615,7 +623,7 @@ namespace Director.Extensions.ModeC
                         o.Name.ToLower().Contains(lowerFilter) ||
                         o.Obis.ToLower().Contains(lowerFilter) ||
                         o.Category.ToLower().Contains(lowerFilter)
-                    );
+                    );  
                 }
 
                 foreach (var entry in entries)
@@ -637,7 +645,9 @@ namespace Director.Extensions.ModeC
             }
            if (totalNodes < 15)
             {
+                isAutoExpanding = true;
                 treeObis.ExpandAll();
+                isAutoExpanding = false;
             }
             else
             {
@@ -653,27 +663,12 @@ namespace Director.Extensions.ModeC
 
         private void cmbMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedMode = cmbMode.SelectedItem?.ToString();
-
-            switch (selectedMode)
-            {
-                case "Read":
-                    PopulateObisTree("Read", txtObis.Text);
-                    break;
-                case "Write":
-                    PopulateObisTree("Write", txtObis.Text);
-                    break;
-                case "Execute":
-                    PopulateObisTree("Execute", txtObis.Text);
-                    break;
-                default:
-                    PopulateObisTree("All");
-                    break;
-            }
+            PopulateObisTree();
         }
 
         private void treeObis_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
+            if (isAutoExpanding) return;
             expandedCategories.Add(e.Node.Text);
         }
 
@@ -737,6 +732,11 @@ namespace Director.Extensions.ModeC
                     child.Checked = e.Node.Checked;
                 }
             }
+        }
+
+        private void cmbMeterType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateObisTree();
         }
     }
 }

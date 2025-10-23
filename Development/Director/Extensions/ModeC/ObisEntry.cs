@@ -7,6 +7,7 @@
         public bool CanRead { get; set; }
         public bool CanWrite { get; set; }
         public bool CanExecute { get; set; }
+        public bool ThreePhase { get; set; }
         public string Category { get; set; }
     }
 }

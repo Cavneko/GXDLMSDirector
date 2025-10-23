@@ -5,14 +5,16 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Status code",
+    "Name": "Status Code",
     "Obis": "96.5.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
@@ -20,7 +22,8 @@
     "Obis": "96.1.0",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
@@ -28,23 +31,26 @@
     "Obis": "96.1.1",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Customer ID_1 (characters 1-8)",
+    "Name": "Customer ID_1 (characters 1-6)",
     "Obis": "0.0.1",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Customer ID_2 (characters 10-16)",
+    "Name": "Customer ID_2 (characters 9-16)",
     "Obis": "0.0.2",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
@@ -53,22 +59,25 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Customer ID_3 (characters 18 \u2013 24)",
+    "Name": "Customer ID_3 (characters 18-24)",
     "Obis": "0.0.3",
     "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Software version",
+    "Name": "Software Version",
     "Obis": "0.2.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
@@ -76,7 +85,8 @@
     "Obis": "0.2.1",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
@@ -85,6 +95,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
@@ -93,542 +104,619 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "IEC Address_1 (characters 1-8)",
+    "Name": "IEC Address_1 (characters 1-6)",
     "Obis": "96.50.1",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "IEC Address_1 (characters 9-16)",
+    "Name": "IEC Address_2 (characters 9-16)",
     "Obis": "96.50.2",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Local time",
+    "Name": "Local Time",
     "Obis": "0.9.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Local date",
+    "Name": "Local Date",
     "Obis": "0.9.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Identification Item"
   },
   {
-    "Name": "Active import energy[+A](+kWh)",
+    "Name": "UTC Time",
+    "Obis": "0.9.3",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Identification Item"
+  },
+  {
+    "Name": "Active import energy [+A]/[SUM +ALi] (+kWh)",
     "Obis": "1.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import Tariff1 energy[+A](+kWh)",
+    "Name": "Active import energy [+A]/[SUM +ALi] (+kWh) rate 1",
     "Obis": "1.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import Tariff2 energy[+A](+kWh)",
+    "Name": "Active import energy [+A]/[SUM +ALi] (+kWh) rate 2",
     "Obis": "1.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import Tariff3 energy[+A](+kWh)",
+    "Name": "Active import energy [+A]/[SUM +ALi] (+kWh) rate 3",
     "Obis": "1.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import Tariff4 energy[+A](+kWh)",
+    "Name": "Active import energy [+A]/[SUM +ALi] (+kWh) rate 4",
     "Obis": "1.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import Tariff5 energy[+A](+kWh)",
+    "Name": "Active import energy [+A]/[SUM +ALi] (+kWh) rate 5",
     "Obis": "1.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import Tariff6 energy[+A](+kWh)",
+    "Name": "Active import energy [+A]/[SUM +ALi] (+kWh) rate 6",
     "Obis": "1.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy[-A](-kWh)",
+    "Name": "Active export energy [-A]/[SUM -ALi] (-kWh)",
     "Obis": "2.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export Tariff1 energy[-A](-kWh)",
+    "Name": "Active export energy [-A]/[SUM -ALi] (-kWh) rate 1",
     "Obis": "2.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export Tariff2 energy[-A](-kWh)",
+    "Name": "Active export energy [-A]/[SUM -ALi] (-kWh) rate 2",
     "Obis": "2.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export Tariff3 energy[-A](-kWh)",
+    "Name": "Active export energy [-A]/[SUM -ALi] (-kWh) rate 3",
     "Obis": "2.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export Tariff4 energy[-A](-kWh)",
+    "Name": "Active export energy [-A]/[SUM -ALi] (-kWh) rate 4",
     "Obis": "2.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export Tariff5 energy[-A](-kWh)",
+    "Name": "Active export energy [-A]/[SUM -ALi] (-kWh) rate 5",
     "Obis": "2.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export Tariff6 energy[-A](-kWh)",
+    "Name": "Active export energy [-A]/[SUM -ALi] (-kWh) rate 6",
     "Obis": "2.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|+|-A|](+kWh)",
+    "Name": "Absolute value of active energy [|+A|+|-A|]/[|SUM+ALi|+|SUM-ALi|] (+kWh)",
     "Obis": "15.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff1 energy (+kWh)",
+    "Name": "Absolute value of active energy [|+A|+|-A|]/[|SUM+ALi|+|SUM-ALi|] (+kWh) rate 1",
     "Obis": "15.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff2 energy (+kWh)",
+    "Name": "Absolute value of active energy [|+A|+|-A|]/[|SUM+ALi|+|SUM-ALi|] (+kWh) rate 2",
     "Obis": "15.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff3 energy (+kWh)",
+    "Name": "Absolute value of active energy [|+A|+|-A|]/[|SUM+ALi|+|SUM-ALi|] (+kWh) rate 3",
     "Obis": "15.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff4 energy (+kWh)",
+    "Name": "Absolute value of active energy [|+A|+|-A|]/[|SUM+ALi|+|SUM-ALi|] (+kWh) rate 4",
     "Obis": "15.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff5 energy (+kWh)",
+    "Name": "Absolute value of active energy [|+A|+|-A|]/[|SUM+ALi|+|SUM-ALi|] (+kWh) rate 5",
     "Obis": "15.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff6 energy (+kWh)",
+    "Name": "Absolute value of active energy [|+A|+|-A|]/[|SUM+ALi|+|SUM-ALi|] (+kWh) rate 6",
     "Obis": "15.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[SUM|ALi|](+kWh)",
+    "Name": "Absolute value of active energy [SUM |ALi|] (+kWh)",
     "Obis": "128.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff1 energy (+kWh)",
+    "Name": "Absolute value of active energy [SUM |ALi|] (+kWh) rate 1",
     "Obis": "128.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff2 energy (+kWh)",
+    "Name": "Absolute value of active energy [SUM |ALi|] (+kWh) rate 2",
     "Obis": "128.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff3 energy (+kWh)",
+    "Name": "Absolute value of active energy [SUM |ALi|] (+kWh) rate 3",
     "Obis": "128.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff4 energy (+kWh)",
+    "Name": "Absolute value of active energy [SUM |ALi|] (+kWh) rate 4",
     "Obis": "128.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff5 energy (+kWh)",
+    "Name": "Absolute value of active energy [SUM |ALi|] (+kWh) rate 5",
     "Obis": "128.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active Tariff6 energy (+kWh)",
+    "Name": "Absolute value of active energy [SUM |ALi|] (+kWh) rate 6",
     "Obis": "128.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|-|-A|](\u00b1kWh)",
+    "Name": "Absolute value of active energy [|+A|-|-A|] (\u00b1kWh)",
     "Obis": "16.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|-|-A|] Tariff1 (\u00b1kWh)",
+    "Name": "Absolute value of active energy [|+A|-|-A|] (\u00b1kWh) rate 1",
     "Obis": "16.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|-|-A|] Tariff2 (\u00b1kWh)",
+    "Name": "Absolute value of active energy [|+A|-|-A|] (\u00b1kWh) rate 2",
     "Obis": "16.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|-|-A|] Tariff3 (\u00b1kWh)",
+    "Name": "Absolute value of active energy [|+A|-|-A|] (\u00b1kWh) rate 3",
     "Obis": "16.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|-|-A|] Tariff4 (\u00b1kWh)",
+    "Name": "Absolute value of active energy [|+A|-|-A|] (\u00b1kWh) rate 4",
     "Obis": "16.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|-|-A|] Tariff5 (\u00b1kWh)",
+    "Name": "Absolute value of active energy [|+A|-|-A|] (\u00b1kWh) rate 5",
     "Obis": "16.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of active energy[|+A|-|-A|] Tariff6 (\u00b1kWh)",
+    "Name": "Absolute value of active energy [|+A|-|-A|] (\u00b1kWh) rate 6",
     "Obis": "16.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L1(R)[+A L1](+kWh)",
+    "Name": "Active import energy phase L1 (R) [+A L1] (kWh)",
     "Obis": "21.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L1(R)[+A L1] Tariff1 (+kWh)",
+    "Name": "Active import energy phase L1 (R) [+A L1] (kWh) rate 1",
     "Obis": "21.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L1(R)[+A L1] Tariff2 (+kWh)",
+    "Name": "Active import energy phase L1 (R) [+A L1] (kWh) rate 2",
     "Obis": "21.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L1(R)[+A L1] Tariff3 (+kWh)",
+    "Name": "Active import energy phase L1 (R) [+A L1] (kWh) rate 3",
     "Obis": "21.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L1(R)[+A L1] Tariff4 (+kWh)",
+    "Name": "Active import energy phase L1 (R) [+A L1] (kWh) rate 4",
     "Obis": "21.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L1(R)[+A L1] Tariff5 (+kWh)",
+    "Name": "Active import energy phase L1 (R) [+A L1] (kWh) rate 5",
     "Obis": "21.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L1(R)[+A L1] Tariff6 (+kWh)",
+    "Name": "Active import energy phase L1 (R) [+A L1] (kWh) rate 6",
     "Obis": "21.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L2 (S) [+A L2] (+kWh)",
+    "Name": "Active import energy phase L2 (S) [+A L2] (kWh)",
     "Obis": "41.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L2 (S) [+A L2] Tariff1 (+kWh)",
+    "Name": "Active import energy phase L2 (S) [+A L2] (kWh) rate 1",
     "Obis": "41.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L2 (S) [+A L2] Tariff2 (+kWh)",
+    "Name": "Active import energy phase L2 (S) [+A L2] (kWh) rate 2",
     "Obis": "41.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L2 (S) [+A L2] Tariff3 (+kWh)",
+    "Name": "Active import energy phase L2 (S) [+A L2] (kWh) rate 3",
     "Obis": "41.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L2 (S) [+A L2] Tariff4 (+kWh)",
+    "Name": "Active import energy phase L2 (S) [+A L2] (kWh) rate 4",
     "Obis": "41.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L2 (S) [+A L2] Tariff5 (+kWh)",
+    "Name": "Active import energy phase L2 (S) [+A L2] (kWh) rate 5",
     "Obis": "41.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L2 (S) [+A L2] Tariff6 (+kWh)",
+    "Name": "Active import energy phase L2 (S) [+A L2] (kWh) rate 6",
     "Obis": "41.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L3 (T) [+A L3] (+kWh)",
+    "Name": "Active import energy phase L3 (T) [+A L3] (kWh)",
     "Obis": "61.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L3 (T) [+A L3] Tariff 1(+kWh)",
+    "Name": "Active import energy phase L3 (T) [+A L3] (kWh) rate 1",
     "Obis": "61.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L3 (T) [+A L3] Tariff 2(+kWh)",
+    "Name": "Active import energy phase L3 (T) [+A L3] (kWh) rate 2",
     "Obis": "61.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L3 (T) [+A L3] Tariff 3(+kWh)",
+    "Name": "Active import energy phase L3 (T) [+A L3] (kWh) rate 3",
     "Obis": "61.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L3 (T) [+A L3] Tariff 4(+kWh)",
+    "Name": "Active import energy phase L3 (T) [+A L3] (kWh) rate 4",
     "Obis": "61.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L3 (T) [+A L3] Tariff 5(+kWh)",
+    "Name": "Active import energy phase L3 (T) [+A L3] (kWh) rate 5",
     "Obis": "61.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import energy phase L3 (T) [+A L3] Tariff 6(+kWh)",
+    "Name": "Active import energy phase L3 (T) [+A L3] (kWh) rate 6",
     "Obis": "61.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L1(R)[-A L1](-kWh)",
+    "Name": "Active export energy phase L1 (R) [-A L1] (-kWh)",
     "Obis": "22.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L1(R)[-A L1] Tariff1 (-kWh)",
+    "Name": "Active export energy phase L1 (R) [-A L1] (-kWh) rate 1",
     "Obis": "22.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L1(R)[-A L1] Tariff2 (-kWh)",
+    "Name": "Active export energy phase L1 (R) [-A L1] (-kWh) rate 2",
     "Obis": "22.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L1(R)[-A L1] Tariff3 (-kWh)",
+    "Name": "Active export energy phase L1 (R) [-A L1] (-kWh) rate 3",
     "Obis": "22.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L1(R)[-A L1] Tariff4 (-kWh)",
+    "Name": "Active export energy phase L1 (R) [-A L1] (-kWh) rate 4",
     "Obis": "22.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L1(R)[-A L1] Tariff5 (-kWh)",
+    "Name": "Active export energy phase L1 (R) [-A L1] (-kWh) rate 5",
     "Obis": "22.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L1(R)[-A L1] Tariff6 (-kWh)",
+    "Name": "Active export energy phase L1 (R) [-A L1] (-kWh) rate 6",
     "Obis": "22.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -637,54 +725,61 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L2 (S) [-A L2] Tatiff1 (-kWh)",
+    "Name": "Active export energy phase L2 (S) [-A L2] (-kWh) rate 1",
     "Obis": "42.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L2 (S) [-A L2] Tatiff2 (-kWh)",
+    "Name": "Active export energy phase L2 (S) [-A L2] (-kWh) rate 2",
     "Obis": "42.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L2 (S) [-A L2] Tatiff3 (-kWh)",
+    "Name": "Active export energy phase L2 (S) [-A L2] (-kWh) rate 3",
     "Obis": "42.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L2 (S) [-A L2] Tatiff4 (-kWh)",
+    "Name": "Active export energy phase L2 (S) [-A L2] (-kWh) rate 4",
     "Obis": "42.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L2 (S) [-A L2] Tatiff5 (-kWh)",
+    "Name": "Active export energy phase L2 (S) [-A L2] (-kWh) rate 5 ",
     "Obis": "42.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L2 (S) [-A L2] Tatiff6 (-kWh)",
+    "Name": "Active export energy phase L2 (S) [-A L2] (-kWh) rate 6",
     "Obis": "42.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -693,278 +788,313 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L3 (T) [-A L3] Tarrif1 (-kWh)",
+    "Name": "Active export energy phase L3 (T) [-A L3] (-kWh) rate 1",
     "Obis": "62.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L3 (T) [-A L3] Tarrif1 (-kWh)",
+    "Name": "Active export energy phase L3 (T) [-A L3] (-kWh) rate 2",
     "Obis": "62.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L3 (T) [-A L3] Tarrif1 (-kWh)",
+    "Name": "Active export energy phase L3 (T) [-A L3] (-kWh) rate 3",
     "Obis": "62.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L3 (T) [-A L3] Tarrif1 (-kWh)",
+    "Name": "Active export energy phase L3 (T) [-A L3] (-kWh) rate 4",
     "Obis": "62.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L3 (T) [-A L3] Tarrif1 (-kWh)",
+    "Name": "Active export energy phase L3 (T) [-A L3] (-kWh) rate 5",
     "Obis": "62.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export energy phase L3 (T) [-A L3] Tarrif1 (-kWh)",
+    "Name": "Active export energy phase L3 (T) [-A L3] (-kWh) rate 6",
     "Obis": "62.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QII [+R] (+kvarh)",
+    "Name": "Reactive import energy QI+QII [+R]/[SUM +RLi] (+kvarh)",
     "Obis": "3.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QII [+R] Tariff1 (+kvarh)",
+    "Name": "Reactive import energy QI+QII [+R]/[SUM +RLi] (+kvarh) rate 1",
     "Obis": "3.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QII [+R] Tariff2 (+kvarh)",
+    "Name": "Reactive import energy QI+QII [+R]/[SUM +RLi] (+kvarh) rate 2",
     "Obis": "3.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QII [+R] Tariff3 (+kvarh)",
+    "Name": "Reactive import energy QI+QII [+R]/[SUM +RLi] (+kvarh) rate 3",
     "Obis": "3.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QII [+R] Tariff4 (+kvarh)",
+    "Name": "Reactive import energy QI+QII [+R]/[SUM +RLi] (+kvarh) rate 4",
     "Obis": "3.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QII [+R] Tariff5 (+kvarh)",
+    "Name": "Reactive import energy QI+QII [+R]/[SUM +RLi] (+kvarh) rate 5",
     "Obis": "3.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QII [+R] Tariff6 (+kvarh)",
+    "Name": "Reactive import energy QI+QII [+R]/[SUM +RLi] (+kvarh) rate 6",
     "Obis": "3.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QIII+QIV [-R] (-kvarh)",
+    "Name": "Reactive export energy QIII+QIV [-R]/[SUM -RLi] (-kvarh)",
     "Obis": "4.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QIII+QIV [-R] Tariff1 (-kvarh)",
+    "Name": "Reactive export energy QIII+QIV [-R]/[SUM -RLi] (-kvarh) rate 1",
     "Obis": "4.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QIII+QIV [-R] Tariff2 (-kvarh)",
+    "Name": "Reactive export energy QIII+QIV [-R]/[SUM -RLi] (-kvarh) rate 2",
     "Obis": "4.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QIII+QIV [-R] Tariff3 (-kvarh)",
+    "Name": "Reactive export energy QIII+QIV [-R]/[SUM -RLi] (-kvarh) rate 3",
     "Obis": "4.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QIII+QIV [-R] Tariff4 (-kvarh)",
+    "Name": "Reactive export energy QIII+QIV [-R]/[SUM -RLi] (-kvarh) rate 4",
     "Obis": "4.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QIII+QIV [-R] Tariff5 (-kvarh)",
+    "Name": "Reactive export energy QIII+QIV [-R]/[SUM -RLi] (-kvarh) rate 5",
     "Obis": "4.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QIII+QIV [-R] Tariff6 (-kvarh)",
+    "Name": "Reactive export energy QIII+QIV [-R]/[SUM -RLi] (-kvarh) rate 6",
     "Obis": "4.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QIV [+R] (+kvarh)",
+    "Name": "Reactive import energy QI+QIV [+R]/[SUM+RLi] (+kvarh)",
     "Obis": "132.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QIV [+R] Tariff1 (+kvarh)",
+    "Name": "Reactive import energy QI+QIV [+R]/[SUM+RLi] (+kvarh) rate 1",
     "Obis": "132.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QIV [+R] Tariff2 (+kvarh)",
+    "Name": "Reactive import energy QI+QIV [+R]/[SUM+RLi] (+kvarh) rate 2",
     "Obis": "132.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QIV [+R] Tariff3 (+kvarh)",
+    "Name": "Reactive import energy QI+QIV [+R]/[SUM+RLi] (+kvarh) rate 3",
     "Obis": "132.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QIV [+R] Tariff4 (+kvarh)",
+    "Name": "Reactive import energy QI+QIV [+R]/[SUM+RLi] (+kvarh) rate 4",
     "Obis": "132.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QIV [+R] Tariff5 (+kvarh)",
+    "Name": "Reactive import energy QI+QIV [+R]/[SUM+RLi] (+kvarh) rate 5",
     "Obis": "132.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive import energy QI+QIV [+R] Tariff6 (+kvarh)",
+    "Name": "Reactive import energy QI+QIV [+R]/[SUM+RLi] (+kvarh) rate 6",
     "Obis": "132.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy QII+QIII [-R] (-kvarh))",
+    "Name": "Reactive export energy QII+QIII [-R]/[SUM-RLi] (-kvarh)",
     "Obis": "133.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy \u00a0QII+QIII [-R] Tariff1 (-kvarh)",
+    "Name": "Reactive export energy QII+QIII [-R]/[SUM-RLi] (-kvarh) rate 1",
     "Obis": "133.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy \u00a0QII+QIII [-R] Tariff2 (-kvarh)",
+    "Name": "Reactive export energy QII+QIII [-R]/[SUM-RLi] (-kvarh) rate 2",
     "Obis": "133.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy \u00a0QII+QIII [-R] Tariff3 (-kvarh)",
+    "Name": "Reactive export energy QII+QIII [-R]/[SUM-RLi] (-kvarh) rate 3",
     "Obis": "133.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy \u00a0QII+QIII [-R] Tariff4 (-kvarh)",
+    "Name": "Reactive export energy QII+QIII [-R]/[SUM-RLi] (-kvarh) rate 4",
     "Obis": "133.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy \u00a0QII+QIII [-R] Tariff5 (-kvarh)",
+    "Name": "Reactive export energy QII+QIII [-R]/[SUM-RLi] (-kvarh) rate 5",
     "Obis": "133.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive export energy \u00a0QII+QIII [-R] Tariff6 (-kvarh)",
+    "Name": "Reactive export energy QII+QIII [-R]/[SUM-RLi] (-kvarh) rate 6",
     "Obis": "133.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -973,54 +1103,61 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|+|-R|] Tariff1 (+kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|+|-R|] (+kvarh) rate 1",
     "Obis": "130.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|+|-R|] Tariff2 (+kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|+|-R|] (+kvarh) rate 2",
     "Obis": "130.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|+|-R|] Tariff3 (+kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|+|-R|] (+kvarh) rate 3",
     "Obis": "130.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|+|-R|] Tariff4 (+kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|+|-R|] (+kvarh) rate 4",
     "Obis": "130.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|+|-R|] Tariff5 (+kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|+|-R|] (+kvarh) rate 5",
     "Obis": "130.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|+|-R|] Tariff6 (+kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|+|-R|] (+kvarh) rate 6",
     "Obis": "130.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1029,518 +1166,583 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|-|-R|] Tariff1 (\u00b1kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|-|-R|] (\u00b1kvarh) rate 1",
     "Obis": "131.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|-|-R|] Tariff2 (\u00b1kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|-|-R|] (\u00b1kvarh) rate 2",
     "Obis": "131.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|-|-R|] Tariff3 (\u00b1kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|-|-R|] (\u00b1kvarh) rate 3",
     "Obis": "131.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|-|-R|] Tariff4 (\u00b1kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|-|-R|] (\u00b1kvarh) rate 4",
     "Obis": "131.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|-|-R|] Tariff5 (\u00b1kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|-|-R|] (\u00b1kvarh) rate 5",
     "Obis": "131.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Absolute value of reactive energy [|+R|-|-R|] Tariff6 (\u00b1kvarh)",
+    "Name": "Absolute value of reactive energy [|+R|-|-R|] (\u00b1kvarh) rate 6",
     "Obis": "131.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Apparent energy [S] (+kVAh)",
+    "Name": "Apparent eneregy [S]/[SUM +SLi] (+kVAh)",
     "Obis": "9.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Apparent energy [S] \u00a0Tariff1 (+kVAh)",
+    "Name": "Apparent eneregy [S]/[SUM +SLi] (+kVAh) rate 1",
     "Obis": "9.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Apparent energy [S] \u00a0Tariff2 (+kVAh)",
+    "Name": "Apparent eneregy [S]/[SUM +SLi] (+kVAh) rate 2",
     "Obis": "9.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Apparent energy [S] \u00a0Tariff3 (+kVAh)",
+    "Name": "Apparent eneregy [S]/[SUM +SLi] (+kVAh) rate 3",
     "Obis": "9.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Apparent energy [S] \u00a0Tariff4 (+kVAh)",
+    "Name": "Apparent eneregy [S]/[SUM +SLi] (+kVAh) rate 4",
     "Obis": "9.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Apparent energy [S] \u00a0Tariff5 (+kVAh)",
+    "Name": "Apparent eneregy [S]/[SUM +SLi] (+kVAh) rate 5",
     "Obis": "9.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Apparent energy [S] \u00a0Tariff6 (+kVAh)",
+    "Name": "Apparent eneregy [S]/[SUM +SLi] (+kVAh) rate 6",
     "Obis": "9.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QI kvarh",
+    "Name": "Reactive energy QI kVArh",
     "Obis": "5.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QI Tariff1 kvarh",
+    "Name": "Reactive energy QI kVArh rate 1",
     "Obis": "5.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QI Tariff2 kvarh",
+    "Name": "Reactive energy QI kVArh rate 2",
     "Obis": "5.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QI Tariff3 kvarh",
+    "Name": "Reactive energy QI kVArh rate 3",
     "Obis": "5.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QI Tariff4 kvarh",
+    "Name": "Reactive energy QI kVArh rate 4",
     "Obis": "5.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QI Tariff5 kvarh",
+    "Name": "Reactive energy QI kVArh rate 5",
     "Obis": "5.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QI Tariff6 kvarh",
+    "Name": "Reactive energy QI kVArh rate 6",
     "Obis": "5.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QII kvarh",
+    "Name": "Reactive energy QII kVArh",
     "Obis": "6.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QII Tariff1 kvarh",
+    "Name": "Reactive energy QII kVArh rate 1",
     "Obis": "6.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QII Tariff2 kvarh",
+    "Name": "Reactive energy QII kVArh rate 2",
     "Obis": "6.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QII Tariff3 kvarh",
+    "Name": "Reactive energy QII kVArh rate 3",
     "Obis": "6.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QII Tariff4 kvarh",
+    "Name": "Reactive energy QII kVArh rate 4",
     "Obis": "6.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QII Tariff5 kvarh",
+    "Name": "Reactive energy QII kVArh rate 5",
     "Obis": "6.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QII Tariff6 kvarh",
+    "Name": "Reactive energy QII kVArh rate 6",
     "Obis": "6.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIII kvarh",
+    "Name": "Reactive energy QIII kVArh",
     "Obis": "7.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIII Tariff1 kvarh",
+    "Name": "Reactive energy QIII kVArh rate 1",
     "Obis": "7.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIII Tariff2 kvarh",
+    "Name": "Reactive energy QIII kVArh rate 2",
     "Obis": "7.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIII Tariff3 kvarh",
+    "Name": "Reactive energy QIII kVArh rate 3",
     "Obis": "7.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIII Tariff4 kvarh",
+    "Name": "Reactive energy QIII kVArh rate 4",
     "Obis": "7.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIII Tariff5 kvarh",
+    "Name": "Reactive energy QIII kVArh rate 5",
     "Obis": "7.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIII Tariff6 kvarh",
+    "Name": "Reactive energy QIII kVArh rate 6",
     "Obis": "7.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIV kvarh",
+    "Name": "Reactive energy QIV KVarh",
     "Obis": "8.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIV Tariff1 kvarh",
+    "Name": "Reactive energy QIV KVarh rate 1",
     "Obis": "8.8.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIV Tariff2 kvarh",
+    "Name": "Reactive energy QIV KVarh rate 2",
     "Obis": "8.8.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIV Tariff3 kvarh",
+    "Name": "Reactive energy QIV KVarh rate 3",
     "Obis": "8.8.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIV Tariff4 kvarh",
+    "Name": "Reactive energy QIV KVarh rate 4",
     "Obis": "8.8.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIV Tariff5 kvarh",
+    "Name": "Reactive energy QIV KVarh rate 5",
     "Obis": "8.8.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive energy QIV Tariff6 kvarh",
+    "Name": "Reactive energy QIV KVarh rate 6",
     "Obis": "8.8.6",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import power[|AL1|+|AL2|+|AL3| if ALX>= 0] (kW)",
+    "Name": "Active import power [|AL1|+|AL2|+|AL3| if ALX\u22650] (kW)",
     "Obis": "1.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export power[|AL1|+|AL2|+|AL3| if ALX< 0] (kW)",
+    "Name": "Active export power [|AL1|+|AL2|+|AL3| if ALX<0] (kW)",
     "Obis": "2.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Total active power[|AL1+AL2+AL3|](+-kW)",
+    "Name": "Total active power [AL1+Al2+AL3] (\u00b1kW)",
     "Obis": "16.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Total active power[|AL1+AL2+AL3|](kW)",
+    "Name": "Total active power [|AL1+AL2+AL3|]/[|AL1|+|AL2|+|AL3|] (kW)",
     "Obis": "15.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active \u00a0power phase L1[AL1](\u00b1kW)",
+    "Name": "Active power phase L1 [AL1] (\u00b1kW)",
     "Obis": "36.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active \u00a0power phase L2[AL2](\u00b1kW)",
+    "Name": "Active power phase L2 [AL2] (\u00b1kW)",
     "Obis": "56.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active \u00a0power phase L3[AL3](\u00b1kW)",
+    "Name": "Active power phase L3 [AL3] (\u00b1kW)",
     "Obis": "76.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active \u00a0power phase L1[|AL1|](kW)",
+    "Name": "Active power phase L1 [|AL1|] (kW)",
     "Obis": "35.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active \u00a0power phase L2[|AL2|](kW)",
+    "Name": "Active power phase L2 [|AL2|] (kW)",
     "Obis": "55.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active \u00a0power phase L3[|AL3|](kW)",
+    "Name": "Active power phase L3 [|AL3|] (kW)",
     "Obis": "75.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import power phase L1[|AL1| if AL1\u22650](kW)",
+    "Name": "Active import power phase L1 [|AL1| if AL1\u22650] (kW)",
     "Obis": "21.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import power phase L2[|AL2| if AL2\u22650](kW)",
+    "Name": "Active import power phase L2 [|AL2| if AL2\u22650] (kW)",
     "Obis": "41.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active import power phase L3[|AL3| if AL3\u22650](kW)",
+    "Name": "Active import power phase L3 [|AL3| if AL3\u22650] (kW)",
     "Obis": "61.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export power phase L1[|AL1| if AL1<0](kW)",
+    "Name": "Active export power phase L1 [|AL1| if AL1<0] (kW)",
     "Obis": "22.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export power phase L2[|AL2| if AL2<0](kW)",
+    "Name": "Active export power phase L2 [|AL2| if AL2<0] (kW)",
     "Obis": "42.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Active export power phase L3[|AL3| if AL3<0](kW)",
+    "Name": "Active export power phase L3 [|AL3| if AL3<0] (kW)",
     "Obis": "62.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Total reactive power [|RL1+RL2+RL3|](kvar)",
+    "Name": "Total reactive power [|RL1+RL2+RL3|]/[|RL1|+|RL2|+|RL3|] (kvar)",
     "Obis": "131.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive \u00a0power phase L1[|RL1|](kvar)",
+    "Name": "Reactive power phase L1 [|RL1|] (kvar)",
     "Obis": "151.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive \u00a0power phase L2[|RL2|](kvar)",
+    "Name": "Reactive power phase L2 [|RL2|] (kvar)",
     "Obis": "171.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive \u00a0power phase L3[|RL3|](kvar)",
+    "Name": "Reactive power phase L3 [|RL3|] (kvar)",
     "Obis": "191.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive \u00a0import power phase L1[|RL1| if RL1\u22650](kvar)",
+    "Name": "Reactive import power phase L1 [|RL1| if RL1 \u22650] (kvar)",
     "Obis": "23.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive \u00a0import power phase L2[|RL2| if RL2\u22650](kvar)",
+    "Name": "Reactive import power phase L2 [|RL2| if RL2 \u22650] (kvar)",
     "Obis": "43.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Reactive \u00a0import power phase L3[|RL3| if RL3\u22650](kvar)",
+    "Name": "Reactive import power phase L3 [|RL3| if RL3 \u22650] (kvar)",
     "Obis": "63.7.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1549,6 +1751,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1557,6 +1760,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1565,6 +1769,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1573,6 +1778,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1581,6 +1787,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1589,6 +1796,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1597,6 +1805,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1605,6 +1814,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1613,6 +1823,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1621,6 +1832,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1629,6 +1841,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1637,6 +1850,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1645,6 +1859,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1653,22 +1868,25 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Average value for power +P",
+    "Name": "Average value for active import power +P",
     "Obis": "1.5.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Average value for power -P",
+    "Name": "Average value for active export power -P",
     "Obis": "2.5.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1677,6 +1895,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1685,30 +1904,34 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Maximum average value for a period of the effective value of voltage L1 (XXX*V).",
+    "Name": "Maximum average value for a period of the effective value of voltage L1 (XXX*V)",
     "Obis": "32.27.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
-    "Name": "Maximum average value for a period of the effective value of voltage L2 (XXX*V).",
+    "Name": "Maximum average value for a period of the effective value of voltage L2 (XXX*V)",
     "Obis": "52.27.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Maximum average value for a period of the effective value of voltage L3 (XXX*V).",
+    "Name": "Maximum average value for a period of the effective value of voltage L3 (XXX*V)",
     "Obis": "72.27.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1717,6 +1940,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Register Item"
   },
   {
@@ -1725,6 +1949,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
@@ -1733,30 +1958,268 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Register Item"
   },
   {
-    "Name": "Event Code",
+    "Name": "Total Harmonic Distortion (THD) VRMS phase L1",
+    "Obis": "32.7.124",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Total Harmonic Distortion (THD) VRMS phase L2",
+    "Obis": "52.7.124",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": true,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Total Harmonic Distortion (THD) VRMS phase L3",
+    "Obis": "72.7.124",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": true,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Total Harmonic Distortion (THD) IRMS phase L1",
+    "Obis": "31.7.124",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Total Harmonic Distortion (THD) IRMS phase L2",
+    "Obis": "51.7.124",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": true,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Total Harmonic Distortion (THD) IRMS phase L3",
+    "Obis": "71.7.124",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": true,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for Reactive import power +Q",
+    "Obis": "3.5.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for Reactive export powwer -Q",
+    "Obis": "4.5.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for reactive power QI",
+    "Obis": "5.5.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for reactive power QII",
+    "Obis": "6.5.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for reactive power QIII",
+    "Obis": "7.5.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for reactive power QIV",
+    "Obis": "8.5.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for period of 10 minutes of voltage value on L1",
+    "Obis": "32.25.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for period of 10 minutes of voltage value on L2",
+    "Obis": "52.25.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": true,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Average value for period of 10 minutes of voltage value on L3",
+    "Obis": "72.25.0",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": true,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Positive active power maximum tariff 1",
+    "Obis": "1.6.1",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Positive active power maximum tariff 2",
+    "Obis": "1.6.2",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Positive active power maximum tariff 3",
+    "Obis": "1.6.3",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Positive active power maximum tariff 4",
+    "Obis": "1.6.4",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Positive active power maximum tariff 5",
+    "Obis": "1.6.5",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Positive active power maximum tariff 6",
+    "Obis": "1.6.6",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Negative active power maximum tariff 1",
+    "Obis": "2.6.1",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Negative active power maximum tariff 2",
+    "Obis": "2.6.2",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Negative active power maximum tariff 3",
+    "Obis": "2.6.3",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Negative active power maximum tariff 4",
+    "Obis": "2.6.4",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Negative active power maximum tariff 5",
+    "Obis": "2.6.5",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Negative active power maximum tariff 6",
+    "Obis": "2.6.6",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Register Item"
+  },
+  {
+    "Name": "Event code",
     "Obis": "96.60.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
     "Name": "Operating parameters changed count",
-    "Obis": "96.2.0",
+    "Obis": "96.60.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Event Item"
-  },
-  {
-    "Name": "Readout list changed count",
-    "Obis": "96.2.12",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1765,71 +2228,80 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": false,
+    "Category": "Event Item"
   },
   {
-    "Name": "Working time of register 1.8.1 (minute)",
-    "Obis": "96.8.1",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
-    "Category": "Register Item"
-  },
-  {
-    "Name": "Working time of register 1.8.2 (minute)",
-    "Obis": "96.8.2",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
-    "Category": "Register Item"
-  },
-  {
-    "Name": "Working time of register 1.8.3 (minute)",
-    "Obis": "96.8.3",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
-    "Category": "Register Item"
-  },
-  {
-    "Name": "Working time of register 1.8.4 (minute)",
-    "Obis": "96.8.4",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
-    "Category": "Register Item"
-  },
-  {
-    "Name": "Working time of register 1.8.5 (minute)",
-    "Obis": "96.8.5",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
-    "Category": "Register Item"
-  },
-  {
-    "Name": "Working time of register 1.8.6 (minute)",
-    "Obis": "96.8.6",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
-    "Category": "Register Item"
-  },
-  {
-    "Name": "Total time of tariff registers (minute)",
+    "Name": "Total time of tariff registers (hhhhhhmm)",
     "Obis": "96.8.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": false,
+    "Category": "Event Item"
   },
   {
-    "Name": "Working time of register 2.8.0 (minute)",
+    "Name": "Working time of register 1.8.1 (hhhhhhmm)",
+    "Obis": "96.8.1",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Event Item"
+  },
+  {
+    "Name": "Working time of register 1.8.2 (hhhhhhmm)",
+    "Obis": "96.8.2",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Event Item"
+  },
+  {
+    "Name": "Working time of register 1.8.3 (hhhhhhmm)",
+    "Obis": "96.8.3",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Event Item"
+  },
+  {
+    "Name": "Working time of register 1.8.4 (hhhhhhmm)",
+    "Obis": "96.8.4",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Event Item"
+  },
+  {
+    "Name": "Working time of register 1.8.5 (hhhhhhmm)",
+    "Obis": "96.8.5",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Event Item"
+  },
+  {
+    "Name": "Working time of register 1.8.6 (hhhhhhmm)",
+    "Obis": "96.8.6",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Event Item"
+  },
+  {
+    "Name": "Working time of register 2.8.0 (hhhhhhmm)",
     "Obis": "96.82.0",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": false,
+    "Category": "Event Item"
   },
   {
     "Name": "Maximum instantaneous current value in L1 in a Period (XXX.XXX*A)",
@@ -1837,7 +2309,8 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": false,
+    "Category": "Event Item"
   },
   {
     "Name": "Maximum instantaneous current value in L2 in a Period (XXX.XXX*A)",
@@ -1845,7 +2318,8 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": true,
+    "Category": "Event Item"
   },
   {
     "Name": "Maximum instantaneous current value in L3 in a Period (XXX.XXX*A)",
@@ -1853,7 +2327,8 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": true,
+    "Category": "Event Item"
   },
   {
     "Name": "Average value for a period of the effective value of voltage L1 (XXX*V)",
@@ -1861,7 +2336,8 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": false,
+    "Category": "Event Item"
   },
   {
     "Name": "Average value for a period of the effective value of voltage L2 (XXX*V)",
@@ -1869,7 +2345,8 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": true,
+    "Category": "Event Item"
   },
   {
     "Name": "Average value for a period of the effective value of voltage L3 (XXX*V)",
@@ -1877,7 +2354,8 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Register Item"
+    "ThreePhase": true,
+    "Category": "Event Item"
   },
   {
     "Name": "Optical port accessed count",
@@ -1885,6 +2363,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1893,6 +2372,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1901,6 +2381,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1909,22 +2390,25 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
-    "Name": "Terminal cover removed count",
+    "Name": "Terminal cover removed counot",
     "Obis": "96.60.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
-    "Name": "Module cover removed count(Battery)",
+    "Name": "Module cover removed count (Battery)",
     "Obis": "96.60.5",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1933,6 +2417,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1941,6 +2426,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1949,6 +2435,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1957,30 +2444,34 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
-    "Name": "Phase L1 power fail count",
+    "Name": "Phases L1 power fail count",
     "Obis": "96.7.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
-    "Name": "Phase L2 power fail count",
+    "Name": "Phases L2 power fail count",
     "Obis": "96.7.2",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Event Item"
   },
   {
-    "Name": "Phase L3 power fail count",
+    "Name": "Phases L3 power fail count",
     "Obis": "96.7.3",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Event Item"
   },
   {
@@ -1989,6 +2480,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -1997,6 +2489,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -2005,6 +2498,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -2013,6 +2507,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Event Item"
   },
   {
@@ -2021,14 +2516,16 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": true,
     "Category": "Event Item"
   },
   {
-    "Name": "Test mode Count",
+    "Name": "Test mode count",
     "Obis": "96.60.1",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Event Item"
   },
   {
@@ -2036,55 +2533,62 @@
     "Obis": "96.35.0",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Threshold Item"
   },
   {
-    "Name": "Over voltage threshold 1",
+    "Name": "Over voltage threshold Level 1",
     "Obis": "12.35.0",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Threshold Item"
   },
   {
-    "Name": "Over voltage threshold 2",
+    "Name": "Over voltage threshold Level 2",
     "Obis": "12.65.0",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Threshold Item"
   },
   {
-    "Name": "Under voltage threshold 1",
+    "Name": "Under voltage threshold Level 1",
     "Obis": "12.31.0",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Threshold Item"
   },
   {
-    "Name": "Under voltage threshold 2",
+    "Name": "Under voltage threshold Level 2",
     "Obis": "12.61.0",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Threshold Item"
   },
   {
-    "Name": "Battery high",
+    "Name": "Battery voltage low threshold",
     "Obis": "96.6.128",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Threshold Item"
   },
   {
-    "Name": "Battery low",
+    "Name": "Battery voltage super-low threshold",
     "Obis": "96.6.129",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Threshold Item"
   },
   {
@@ -2092,7 +2596,8 @@
     "Obis": "96.96.1",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2100,7 +2605,8 @@
     "Obis": "96.96.2",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2108,7 +2614,8 @@
     "Obis": "96.96.3",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2116,7 +2623,8 @@
     "Obis": "96.96.4",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2124,7 +2632,8 @@
     "Obis": "96.96.5",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2132,7 +2641,8 @@
     "Obis": "96.96.6",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2140,7 +2650,8 @@
     "Obis": "96.96.7",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2148,7 +2659,8 @@
     "Obis": "96.96.8",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2156,7 +2668,8 @@
     "Obis": "96.96.9",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2164,7 +2677,8 @@
     "Obis": "96.96.10",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2172,7 +2686,8 @@
     "Obis": "96.96.11",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2180,7 +2695,8 @@
     "Obis": "96.96.12",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2188,7 +2704,8 @@
     "Obis": "96.96.13",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2196,7 +2713,8 @@
     "Obis": "96.96.14",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2204,7 +2722,8 @@
     "Obis": "96.96.15",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
   },
   {
@@ -2212,15 +2731,35 @@
     "Obis": "96.96.16",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Module Data"
+  },
+  {
+    "Name": "Data Readout config",
+    "Obis": "21.0.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Table Config"
+  },
+  {
+    "Name": "Trigger for Paramter Change Event config",
+    "Obis": "21.0.13",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Table Config"
   },
   {
     "Name": "On-DemandData Readout1 Config",
     "Obis": "21.0.9",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2228,95 +2767,107 @@
     "Obis": "21.0.10",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 1",
+    "Name": "Register table 1 Config",
     "Obis": "21.0.1",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 2",
+    "Name": "Register table 2 Config",
     "Obis": "21.0.2",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 3",
+    "Name": "Register table 3 Config",
     "Obis": "21.0.3",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 4",
+    "Name": "Register table 4 Config",
     "Obis": "21.0.4",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 5",
+    "Name": "Register table 5 Config",
     "Obis": "21.0.5",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 6",
+    "Name": "Register table 6 Config",
     "Obis": "21.0.6",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 7",
+    "Name": "Register table 7 Config",
     "Obis": "21.0.7",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 8",
+    "Name": "Register table 8 Config",
     "Obis": "21.0.8",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Event Table",
+    "Name": "Event Table Content",
     "Obis": "21.0.11",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Normal Level Display Table",
+    "Name": "Normal Level Display Table Config",
     "Obis": "21.0.20",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Service Level Display Table",
+    "Name": "Service Level Display Table Config",
     "Obis": "21.0.21",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2324,7 +2875,8 @@
     "Obis": "21.3.0",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2333,6 +2885,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2341,6 +2894,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2349,6 +2903,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2357,6 +2912,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2365,14 +2921,16 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Register table 4 Content",
+    "Name": "Reigster table 4 Content",
     "Obis": "21.2.4",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2381,6 +2939,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2389,6 +2948,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2397,6 +2957,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2405,302 +2966,43 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Event Table Content",
+    "Name": "Event Table Config",
     "Obis": "21.2.11",
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Service Mode Start",
-    "Obis": "21.1.0",
-    "CanRead": false,
+    "Name": "Normal level display table Data",
+    "Obis": "21.2.20",
+    "CanRead": true,
     "CanWrite": false,
-    "CanExecute": true,
-    "Category": "Settings"
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Table Config"
   },
   {
-    "Name": "Service Mode End",
-    "Obis": "21.1.1",
-    "CanRead": false,
+    "Name": "Service level display table Data",
+    "Obis": "21.2.21",
+    "CanRead": true,
     "CanWrite": false,
-    "CanExecute": true,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Display Period-Auto",
-    "Obis": "129.4.4",
-    "CanRead": true,
-    "CanWrite": true,
     "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Display Period-Blackout",
-    "Obis": "129.4.5",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Display Period-Return",
-    "Obis": "129.4.6",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Energy Decimal Number",
-    "Obis": "129.4.10",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Rate nums",
-    "Obis": "13.0.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Measure Model",
-    "Obis": "13.0.2",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "RS485 Baud Setting",
-    "Obis": "13.0.21",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "RS485 Port Setting",
-    "Obis": "13.0.22",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Main Relay Status",
-    "Obis": "96.3.16",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Factory Model",
-    "Obis": "96.50.11",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Auto Cailibration",
-    "Obis": "10.9.0",
-    "CanRead": false,
-    "CanWrite": false,
-    "CanExecute": true,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Pulse Width",
-    "Obis": "96.52.89",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Electrometer impulse constant",
-    "Obis": "0.3.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Level0 user password",
-    "Obis": "129.5.3",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Level1 user password",
-    "Obis": "129.5.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Level2 user password",
-    "Obis": "129.5.1",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Level3 user password",
-    "Obis": "129.5.2",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Clear Demand",
-    "Obis": "130.0.6",
-    "CanRead": false,
-    "CanWrite": false,
-    "CanExecute": true,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Clear Event",
-    "Obis": "130.0.4",
-    "CanRead": false,
-    "CanWrite": false,
-    "CanExecute": true,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Clear Meter",
-    "Obis": "130.0.10",
-    "CanRead": false,
-    "CanWrite": false,
-    "CanExecute": true,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Voltage decimal config",
-    "Obis": "129.4.31",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Power decimal config",
-    "Obis": "129.4.32",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Enter service mode when power on",
-    "Obis": "129.4.20",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Alarm Visible",
-    "Obis": "129.4.21",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Open Terminal Cover to Enter Server mode",
-    "Obis": "129.4.22",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "aconfigpw",
-    "Obis": "35.10.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Enable Level 0 password",
-    "Obis": "37.10.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "HWlock Level1",
-    "Obis": "51.10.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "HWlock Level2",
-    "Obis": "53.10.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "HWlock Level3",
-    "Obis": "55.10.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Enable Tamper attemp detected",
-    "Obis": "129.4.23",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Service Mode Normal Displaytime",
-    "Obis": "129.4.7",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Trigger for Parameter Change Event Config",
-    "Obis": "21.0.13",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
+    "ThreePhase": false,
+    "Category": "Table Config"
   },
   {
     "Name": "P1 port data config",
     "Obis": "21.0.12",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2709,38 +3011,16 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
-  },
-  {
-    "Name": "DST Calendar",
-    "Obis": "96.13.0",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "DST Enable",
-    "Obis": "96.13.1",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "Button Long pressed Event Trigger Time",
-    "Obis": "129.4.30",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
   },
   {
     "Name": "On-DemandData Readout1 Auto-read Time Interval",
     "Obis": "21.3.10",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2748,7 +3028,8 @@
     "Obis": "21.3.11",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2756,7 +3037,8 @@
     "Obis": "21.3.1",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2764,7 +3046,8 @@
     "Obis": "21.3.2",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2772,7 +3055,8 @@
     "Obis": "21.3.3",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2780,7 +3064,8 @@
     "Obis": "21.3.4",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2788,7 +3073,8 @@
     "Obis": "21.3.5",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2796,7 +3082,8 @@
     "Obis": "21.3.6",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2804,7 +3091,8 @@
     "Obis": "21.3.7",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2812,7 +3100,8 @@
     "Obis": "21.3.8",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2820,7 +3109,8 @@
     "Obis": "21.3.9",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2829,6 +3119,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2837,6 +3128,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2845,6 +3137,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2853,6 +3146,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2861,6 +3155,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2869,6 +3164,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2877,6 +3173,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2885,6 +3182,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2893,6 +3191,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2901,6 +3200,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
@@ -2909,30 +3209,340 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Table Config"
   },
   {
-    "Name": "Mode C timeout",
-    "Obis": "96.14.1",
+    "Name": "Display Period-Auto",
+    "Obis": "129.4.4",
     "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
+    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Settings"
   },
   {
-    "Name": "Mode E timeout",
+    "Name": "Display Period-Blackout",
+    "Obis": "129.4.5",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Dispaly Period-Return",
+    "Obis": "129.4.6",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Energy display deciaml",
+    "Obis": "129.4.10",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Rate Nums",
+    "Obis": "13.0.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Measurement Mode",
+    "Obis": "13.0.2",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Main relay control",
+    "Obis": "96.3.16",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Electrometer impulse constant",
+    "Obis": "0.3.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Update Level 0 password (Level 1)",
+    "Obis": "129.5.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Update Level 1 password (Level 2)",
+    "Obis": "129.5.1",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Update Level 2 password (Level 3)",
+    "Obis": "129.5.2",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Update Level 3 password (Level 0)",
+    "Obis": "129.5.3",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Voltage Decimal Point Config",
+    "Obis": "129.4.31",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Current and Power Deical Point Config",
+    "Obis": "129.4.32",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Enter service mode when power on",
+    "Obis": "129.4.20",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Enable Alarm Visible",
+    "Obis": "129.4.21",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Open Terminal Cover to Enter Service mode",
+    "Obis": "129.4.22",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Enable Tamper attempt detected",
+    "Obis": "129.4.23",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "HWlock Level1",
+    "Obis": "51.10.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "HWlock Level2",
+    "Obis": "53.10.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "HWlock Level3",
+    "Obis": "55.10.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Level 0 Password Enable",
+    "Obis": "37.10.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "DST config",
+    "Obis": "96.13.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Enable DST",
+    "Obis": "96.13.1",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "UTC TimeZone",
+    "Obis": "96.13.10",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Access Level config",
+    "Obis": "35.10.0",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "RS485 Baudrate",
+    "Obis": "13.0.21",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "RS485 Data Settings",
+    "Obis": "13.0.22",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Mode C Timeout",
+    "Obis": "96.14.1",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Mode E Timeout",
     "Obis": "96.14.2",
     "CanRead": true,
     "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Button long pressed event trigger time",
+    "Obis": "129.4.30",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Factory Model",
+    "Obis": "96.50.11",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Pulse Width",
+    "Obis": "96.52.89",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Service Mode Normal Displaytime",
+    "Obis": "129.4.7",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Service Mode Start",
+    "Obis": "21.1.0",
+    "CanRead": false,
+    "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Service Mode End",
+    "Obis": "21.1.1",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Settings"
   },
   {
     "Name": "Test Mode Start",
-    "Obis": "21.1.2",
+    "Obis": "21.1.12",
     "CanRead": false,
     "CanWrite": false,
-    "CanExecute": true,
+    "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Settings"
   },
   {
@@ -2940,63 +3550,71 @@
     "Obis": "21.1.3",
     "CanRead": false,
     "CanWrite": false,
-    "CanExecute": true,
+    "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Settings"
   },
   {
-    "Name": "UTC Time zone",
-    "Obis": "96.13.10",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Settings"
-  },
-  {
-    "Name": "UTC time",
-    "Obis": "0.9.3",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Identification Item"
-  },
-  {
-    "Name": "Firmware Upgrade Disabled/Enabled",
-    "Obis": "44.0.3",
-    "CanRead": true,
+    "Name": "Clear Demand",
+    "Obis": "130.0.6",
+    "CanRead": false,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Firmware Upgrade"
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Clear Event",
+    "Obis": "130.0.4",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Clear Meter",
+    "Obis": "130.0.10",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Reset Meter",
+    "Obis": "130.0.8",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Settings"
+  },
+  {
+    "Name": "Auto Calibration",
+    "Obis": "10.9.0",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Settings"
   },
   {
     "Name": "Firmware Upgrade Password",
     "Obis": "44.0.1",
     "CanRead": false,
     "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Firmware Upgrade"
-  },
-  {
-    "Name": "Firmware Upgrade Initiate",
-    "Obis": "44.1.6",
-    "CanRead": false,
-    "CanWrite": false,
     "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Firmware Upgrade"
   },
   {
-    "Name": "Firmware Upgrade File Transfer",
-    "Obis": "44.0.7",
-    "CanRead": false,
+    "Name": "Firmware Upgrade Disabled/Enabled",
+    "Obis": "44.0.3",
+    "CanRead": true,
     "CanWrite": true,
-    "CanExecute": false,
-    "Category": "Firmware Upgrade"
-  },
-  {
-    "Name": "Firmware Upgrade Verification",
-    "Obis": "44.0.8",
-    "CanRead": false,
-    "CanWrite": false,
     "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Firmware Upgrade"
   },
   {
@@ -3005,14 +3623,7 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
-    "Category": "Firmware Upgrade"
-  },
-  {
-    "Name": "Firmware Upgrade Activation",
-    "Obis": "44.0.9",
-    "CanRead": false,
-    "CanWrite": false,
-    "CanExecute": true,
+    "ThreePhase": false,
     "Category": "Firmware Upgrade"
   },
   {
@@ -3021,6 +3632,70 @@
     "CanRead": true,
     "CanWrite": false,
     "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Firmware Upgrade"
+  },
+  {
+    "Name": "Resume Transfer Disabled/Enabled",
+    "Obis": "44.0.10",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Firmware Upgrade"
+  },
+  {
+    "Name": "Resume Transfer package",
+    "Obis": "44.0.11",
+    "CanRead": true,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Firmware Upgrade"
+  },
+  {
+    "Name": "Firmware Upgrade File Transfer",
+    "Obis": "44.0.7",
+    "CanRead": false,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Firmware Upgrade"
+  },
+  {
+    "Name": "Modify Upgrade password",
+    "Obis": "44.0.20",
+    "CanRead": true,
+    "CanWrite": true,
+    "CanExecute": true,
+    "ThreePhase": false,
+    "Category": "Firmware Upgrade"
+  },
+  {
+    "Name": "Firmware Upgrade Initiate",
+    "Obis": "44.1.6",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Firmware Upgrade"
+  },
+  {
+    "Name": "Firmware Upgrade Verification",
+    "Obis": "44.0.8",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
+    "Category": "Firmware Upgrade"
+  },
+  {
+    "Name": "Firmware Upgrade Activation",
+    "Obis": "44.0.9",
+    "CanRead": false,
+    "CanWrite": false,
+    "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Firmware Upgrade"
   },
   {
@@ -3028,31 +3703,8 @@
     "Obis": "44.0.12",
     "CanRead": false,
     "CanWrite": false,
-    "CanExecute": true,
-    "Category": "Firmware Upgrade"
-  },
-  {
-    "Name": "Resume Transfer Disabled/Enable",
-    "Obis": "44.0.10",
-    "CanRead": true,
-    "CanWrite": false,
     "CanExecute": false,
-    "Category": "Firmware Upgrade"
-  },
-  {
-    "Name": "Resume Transfer Package",
-    "Obis": "44.0.11",
-    "CanRead": true,
-    "CanWrite": false,
-    "CanExecute": false,
-    "Category": "Firmware Upgrade"
-  },
-  {
-    "Name": "Modify Upgrade Password",
-    "Obis": "44.0.20",
-    "CanRead": true,
-    "CanWrite": true,
-    "CanExecute": false,
+    "ThreePhase": false,
     "Category": "Firmware Upgrade"
   }
 ]

@@ -527,6 +527,7 @@
       <DependentUpon>DLMSTranslatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <EmbeddedResource Include="Director\Extensions\ModeC\obis_list.json" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -546,9 +547,6 @@
     <None Include="Resources\DeleteMnu.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Director\Extensions\ModeC\obis_list.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <None Include="Resources\OpenMnu.bmp" />
   </ItemGroup>
   <ItemGroup>

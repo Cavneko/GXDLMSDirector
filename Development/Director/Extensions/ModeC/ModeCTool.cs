@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.CodeDom.Compiler;
+using System.ComponentModel.DataAnnotations;
 
 namespace Director.Extensions.ModeC
 {
@@ -136,7 +137,7 @@ namespace Director.Extensions.ModeC
             txtPassword.Enabled = !busy;
         }
 
-        private void PerformCommand(string portName, int guardMilliseconds, string password, string mode, List<ObisEntry> CheckedEntries, string data)
+        private void PerformCommand(string portName, int guardMilliseconds, string password, string mode, List<ObisEntry> CheckedEntries, string data, int maxAttempts)
         {
             ModeCSerial previous = DetachCurrentSerial();
             if (previous != null)
@@ -163,78 +164,119 @@ namespace Director.Extensions.ModeC
                 newSerial.OpenInitial();
 
                 byte[] cmd1 = Encoding.ASCII.GetBytes("/?!\r\n");
-                LogFrame("CMD1", "TX", cmd1);
-                newSerial.Write(cmd1);
+                for (int attempt = 1; attempt <= maxAttempts; attempt++)
+                {
+                    LogFrame("CMD1", "TX", cmd1);
+                    newSerial.Write(cmd1);
 
-                byte[] ident = newSerial.ReadUntilCrLf(1200);
-                LogFrame("IDENT", "RX", ident);
+                    try
+                    {
+                        byte[] ident = newSerial.ReadUntilCrLf(1200);
+                        LogFrame("IDENT", "RX", ident);
+                        break;
+                    }
+                    catch (TimeoutException)
+                    {
+                        Log($"[WARN] Timeout waiting ACK for CMD1 (attempt {attempt}/{maxAttempts}).");
+
+                        if (attempt < maxAttempts)
+                        {
+                            continue;
+                        }
+
+                        Log("[ERR] CMD1 failed after max retries.");
+                        return;
+                    }
+                }
 
                 byte[] cmd2 = new byte[] { 0x06, (byte)'0', (byte)'6', (byte)'1', 0x0D, 0x0A };
-                LogFrame("CMD2", "TX", cmd2);
-                newSerial.Write(cmd2);
-
-                Thread.Sleep(Math.Max(0, guardMilliseconds));
-
-                newSerial.SwitchToHighSpeed();
-                Log("[SWITCH] 19200 7E1 DTR=1 RTS=0");
-
-                Thread.Sleep(100);
-
-                byte[] p0Response = null;
-                try
+                for (int attempt = 1; attempt <= maxAttempts; attempt++)
                 {
-                    p0Response = newSerial.ReadUntilEtxThenBcc(1200);
-                    LogFrame("P0", "RX", p0Response);
-                }
-                catch (TimeoutException)
-                {
-                    Log("[ERR] Timeout waiting response for P0.");
+                    LogFrame("CMD2", "TX", cmd2);
+                    newSerial.Write(cmd2);
+
+                    Thread.Sleep(Math.Max(0, guardMilliseconds));
+
+                    newSerial.SwitchToHighSpeed();
+                    Log("[SWITCH] 19200 7E1 DTR=1 RTS=0");
+
+                    Thread.Sleep(100);
+                    byte[] p0Response = null;
+                    try
+                    {
+                        p0Response = newSerial.ReadUntilEtxThenBcc(1200);
+                        LogFrame("P0", "RX", p0Response);
+
+                        if (p0Response == null || p0Response.Length < 2)
+                        {
+                            Log("[ERR] P0 response too short.");
+                            return;
+                        }
+
+                        byte p0Bcc = p0Response[p0Response.Length - 1];
+                        byte[] p0WithoutBcc = new byte[p0Response.Length - 1];
+                        Buffer.BlockCopy(p0Response, 0, p0WithoutBcc, 0, p0WithoutBcc.Length);
+                        byte expectedP0Bcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(p0Response, 1, p0Response.Length - 2));
+                        if (expectedP0Bcc != p0Bcc)
+                        {
+                            Log($"[ERR] P0 BCC mismatch. Expected {expectedP0Bcc:X2}, received {p0Bcc:X2}.");
+                        }
+
+                        int p0StxIndex = Array.IndexOf(p0WithoutBcc, (byte)0x02);
+                        int p0EtxIndex = Array.IndexOf(p0WithoutBcc, (byte)0x03);
+                        if (p0StxIndex < 0 || p0EtxIndex <= p0StxIndex)
+                        {
+                            Log("[ERR] Unexpected P0 response format.");
+                            return;
+                        }
+
+                        sessionReady = true;
+                        Log("[INFO] Mode C session ready.");
+                        break;
+                    }
+                    catch (TimeoutException)
+                    {
+                        Log($"[ERR] Timeout waiting for P0 (attempt {attempt}/{maxAttempts}).");
+                        if (attempt < maxAttempts)
+                        {
+                            newSerial.SwitchToLowSpeed();
+                            continue;
+                        }
+
+                        Log("[ERR] P0 failed after max retries");
+                        return;
+                    }
                 }
 
-                if (p0Response == null || p0Response.Length < 2)
-                {
-                    Log("[ERR] P0 response too short.");
-                    return;
-                }
-
-                byte p0Bcc = p0Response[p0Response.Length - 1];
-                byte[] p0WithoutBcc = new byte[p0Response.Length - 1];
-                Buffer.BlockCopy(p0Response, 0, p0WithoutBcc, 0, p0WithoutBcc.Length);
-                byte expectedP0Bcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(p0Response, 1, p0Response.Length - 2));
-                if (expectedP0Bcc != p0Bcc)
-                {
-                    Log($"[ERR] P0 BCC mismatch. Expected {expectedP0Bcc:X2}, received {p0Bcc:X2}.");
-                }
-
-                int p0StxIndex = Array.IndexOf(p0WithoutBcc, (byte)0x02);
-                int p0EtxIndex = Array.IndexOf(p0WithoutBcc, (byte)0x03);
-                if (p0StxIndex < 0 || p0EtxIndex <= p0StxIndex)
-                {
-                    Log("[ERR] Unexpected P0 response format.");
-                    return;
-                }
-
-                sessionReady = true;
-                Log("[INFO] Mode C session ready.");
 
                 byte[] p1Frame = ModeCSerial.BuildP1(password);
-                LogFrame("P1", "TX", p1Frame);
-                newSerial.Write(p1Frame);
-                try
+                for (int attempt = 1; attempt <= maxAttempts; attempt++)
                 {
-                    int value = newSerial.ReadByteWithTimeout(1200);
-                    if (value == 0x06)
+                    LogFrame("P1", "TX", p1Frame);
+                    newSerial.Write(p1Frame);
+                    try
                     {
-                        Log("[P1] RX: ACK");
+                        int value = newSerial.ReadByteWithTimeout(1200);
+                        if (value == 0x06)
+                        {
+                            Log("[P1] RX: ACK");
+                        }
+                        else if (value >= 0)
+                        {
+                            LogFrame("P1", "RX", new[] { (byte)value });
+                        }
+                        break;
                     }
-                    else if (value >= 0)
+                    catch (TimeoutException)
                     {
-                        LogFrame("P1", "RX", new[] { (byte)value });
+                        Log($"[ERR] Timeout waiting ACK for P1 ({attempt}/{maxAttempts}).");
+                        if (attempt < maxAttempts)
+                        {
+                            continue;
+                        }
+                        Log("[ERR] P1 failed after max retries");
+                        return;
                     }
-                }
-                catch (TimeoutException)
-                {
-                    Log("[ERR] Timeout waiting ACK for P1.");
                 }
 
                 byte[] frame = null;
@@ -242,129 +284,140 @@ namespace Director.Extensions.ModeC
                 foreach (ObisEntry obisEntry in CheckedEntries)
                 {
                     obis = obisEntry.Obis;
-                    switch (mode) 
+                    for (int attempt = 1; attempt <= maxAttempts; attempt++)
                     {
-                        case "Write":
-                            frame = ModeCSerial.BuildW1(obis, data);
-                            LogFrame("W1", "TX", frame);
-                            newSerial.Write(frame);
-                            break;
-                        case "Read":
-                            frame = ModeCSerial.BuildR1(obis);
-                            LogFrame("R1", "TX", frame);
-                            newSerial.Write(frame);
-                            break;
-                        case "Execute":
-                            frame = ModeCSerial.BuildE2(obis, data);
-                            LogFrame("E2", "TX", frame);
-                            newSerial.Write(frame);
-                            break;
-                        default: 
-                            break;
-                    }
-
-                    byte[] response = null;
-                    try
-                    {
-                        switch (mode)
+                        switch (mode) 
                         {
                             case "Write":
-                                int writeValue = newSerial.ReadByteWithTimeout(1200);
-                                if (writeValue == 0x06)
-                                {
-                                    Log("[W1] RX: ACK");
-                                    results.Add(obisEntry.Obis, "ACK");
-                                }
-                                else if (writeValue == 0x15)
-                                {
-                                    Log("[W1] RX: NAK");
-                                    results.Add(obisEntry.Obis, "NAK");
-                                }
-                                else if (writeValue > 0)
-                                {
-                                    LogFrame("W1", "RX", new[] { (byte)writeValue });
-                                }
+                                frame = ModeCSerial.BuildW1(obis, data);
+                                LogFrame("W1", "TX", frame);
+                                newSerial.Write(frame);
                                 break;
                             case "Read":
-                                response = newSerial.ReadUntilEtxThenBcc(1200);
-                                LogFrame("R1", "RX", response);
+                                frame = ModeCSerial.BuildR1(obis);
+                                LogFrame("R1", "TX", frame);
+                                newSerial.Write(frame);
                                 break;
                             case "Execute":
-                                int executeValue = newSerial.ReadByteWithTimeout(1200);
-                                if (executeValue == 0x06)
-                                {
-                                    Log("E2 RX: ACK");
-                                    results.Add(obisEntry.Obis, "ACK");
-                                }
-                                else if (executeValue == 0x15)
-                                {
-                                    Log("E2: RX: NAK");
-                                    results.Add(obisEntry.Obis, "NAK");
-                                }
-                                else if (executeValue >= 0)
-                                {
-                                    LogFrame("E2", "RX", new[] { (byte)executeValue });
-                                }
+                                frame = ModeCSerial.BuildE2(obis, data);
+                                LogFrame("E2", "TX", frame);
+                                newSerial.Write(frame);
                                 break;
-                            default:
+                            default: 
                                 break;
                         }
-                    }
-                    catch (TimeoutException)
-                    {
-                        switch (mode)
-                        {
-                            case "Write":
-                                Log("[ERR] Timeout waiting for W1 response.");
-                                break;
-                            case "Read":
-                                Log("[ERR] Timeout waiting for R1 response.");
-                                break;
-                            case "Execute":
-                                Log("[ERR] Timeout waitinf for E2 response.");
-                                break;
-                            default:
-                                break;
-                        }
-                    }
 
-                    if (response != null)
-                    {
-                        if (response.Length < 2)
+                        byte[] response = null;
+                        try
                         {
-                            Log("[ERR] Response too short.");
-                        }
-                        else
-                        {
-                            byte receivedBcc = response[response.Length - 1];
-                            byte[] payload = new byte[response.Length - 1];
-                            Buffer.BlockCopy(response, 0, payload, 0, payload.Length);
-
-                            int stxIndex = Array.IndexOf(payload, (byte)0x02);
-                            int etxIndex = Array.IndexOf(payload, (byte)0x03);
-                            if (stxIndex < 0 || etxIndex <= stxIndex)
+                            switch (mode)
                             {
-                                Log("[ERR] Unexpected response format.");
+                                case "Write":
+                                    int writeValue = newSerial.ReadByteWithTimeout(1200);
+                                    if (writeValue == 0x06)
+                                    {
+                                        Log("[W1] RX: ACK");
+                                        results.Add(obisEntry.Obis, "ACK");
+                                    }
+                                    else if (writeValue == 0x15)
+                                    {
+                                        Log("[W1] RX: NAK");
+                                        results.Add(obisEntry.Obis, "NAK");
+                                    }
+                                    else if (writeValue > 0)
+                                    {
+                                        LogFrame("W1", "RX", new[] { (byte)writeValue });
+                                    }
+                                    break;
+                                case "Read":
+                                    response = newSerial.ReadUntilEtxThenBcc(1200);
+                                    LogFrame("R1", "RX", response);
+                                    break;
+                                case "Execute":
+                                    int executeValue = newSerial.ReadByteWithTimeout(1200);
+                                    if (executeValue == 0x06)
+                                    {
+                                        Log("E2 RX: ACK");
+                                        results.Add(obisEntry.Obis, "ACK");
+                                    }
+                                    else if (executeValue == 0x15)
+                                    {
+                                        Log("E2: RX: NAK");
+                                        results.Add(obisEntry.Obis, "NAK");
+                                    }
+                                    else if (executeValue >= 0)
+                                    {
+                                        LogFrame("E2", "RX", new[] { (byte)executeValue });
+                                    }
+                                    break;
+                                default:
+                                    break;
                             }
-                            else
-                            {
-                                byte expectedBcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(payload, stxIndex + 1, etxIndex - stxIndex));
-                                if (receivedBcc != expectedBcc)
-                                {
-                                    Log($"[ERR] BCC mismatch. Expected {expectedBcc:X2}, received {receivedBcc:X2}.");
-                                }
 
-                                string ascii = Encoding.ASCII.GetString(payload, stxIndex + 1, etxIndex - stxIndex - 1);
-                                string value = ExtractValue(ascii);
-                                if (value != null)
+                            if (response != null)
+                            {
+                                if (response.Length < 2)
                                 {
-                                    results.Add(obisEntry.Obis, value);
+                                    Log("[ERR] Response too short.");
                                 }
                                 else
                                 {
-                                    Log($"[ERR] Cannot parse value from '{ascii}'.");
+                                    byte receivedBcc = response[response.Length - 1];
+                                    byte[] payload = new byte[response.Length - 1];
+                                    Buffer.BlockCopy(response, 0, payload, 0, payload.Length);
+
+                                    int stxIndex = Array.IndexOf(payload, (byte)0x02);
+                                    int etxIndex = Array.IndexOf(payload, (byte)0x03);
+                                    if (stxIndex < 0 || etxIndex <= stxIndex)
+                                    {
+                                        Log("[ERR] Unexpected response format.");
+                                    }
+                                    else
+                                    {
+                                        byte expectedBcc = ModeCSerial.ComputeBcc(new ReadOnlySpan<byte>(payload, stxIndex + 1, etxIndex - stxIndex));
+                                        if (receivedBcc != expectedBcc)
+                                        {
+                                            Log($"[ERR] BCC mismatch. Expected {expectedBcc:X2}, received {receivedBcc:X2}.");
+                                        }
+
+                                        string ascii = Encoding.ASCII.GetString(payload, stxIndex + 1, etxIndex - stxIndex - 1);
+                                        string value = ExtractValue(ascii);
+                                        if (value != null)
+                                        {
+                                            results.Add(obisEntry.Obis, value);
+                                        }
+                                        else
+                                        {
+                                            Log($"[ERR] Cannot parse value from '{ascii}'.");
+                                        }
+                                    }
                                 }
                             }
+                            break;
+                        }
+
+                        catch (TimeoutException)
+                        {
+                            switch (mode)
+                            {
+                                case "Write":
+                                    Log("[ERR] Timeout waiting for W1 response.");
+                                    break;
+                                case "Read":
+                                    Log("[ERR] Timeout waiting for R1 response.");
+                                    break;
+                                case "Execute":
+                                    Log("[ERR] Timeout waitinf for E2 response.");
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                            if (attempt < maxAttempts)
+                            {
+                                continue;
+                            }
+                            Log("[ERR] Failed after max retries");
                         }
                     }
                 }
@@ -720,7 +773,8 @@ namespace Director.Extensions.ModeC
             string password = txtPassword.Text ?? string.Empty;
             List<ObisEntry> CheckedEntries = GetCheckedObisEntry();
             string data = txtData.Text;
-            await RunOperationAsync(() => PerformCommand(port, guard, password, mode, CheckedEntries, data));
+            int maxAttempts = (int)numRetry.Value;
+            await RunOperationAsync(() => PerformCommand(port, guard, password, mode, CheckedEntries, data, maxAttempts));
         }
 
         private void treeObis_AfterCheck(object sender, TreeViewEventArgs e)

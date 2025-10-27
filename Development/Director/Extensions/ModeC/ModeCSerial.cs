@@ -77,6 +77,26 @@ namespace Director.Extensions.ModeC
             }
         }
 
+        public void SwitchToLowSpeed()
+        {
+            lock (portLock)
+            {
+                EnsureOpen();
+                SerialPort p = port;
+                if (p == null)
+                {
+                    throw new InvalidOperationException("Serial port is not open.");
+                }
+                p.BaudRate = 300;
+                p.Parity = Parity.Even;
+                p.DataBits = 7;
+                p.StopBits = StopBits.One;
+                p.Handshake = Handshake.None;
+                p.DtrEnable = true;
+                p.RtsEnable = false;
+            }
+        }
+
         public void Write(byte[] buffer)
         {
             if (buffer == null)

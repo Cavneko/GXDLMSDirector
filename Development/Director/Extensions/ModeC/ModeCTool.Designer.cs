@@ -47,12 +47,14 @@ namespace Director.Extensions.ModeC
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cmbMode = new System.Windows.Forms.ComboBox();
             this.btnRun = new System.Windows.Forms.Button();
+            this.lblType = new System.Windows.Forms.Label();
+            this.cmbMeterType = new System.Windows.Forms.ComboBox();
+            this.lblRetry = new System.Windows.Forms.Label();
+            this.numRetry = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.lblResult = new System.Windows.Forms.Label();
-            this.lblType = new System.Windows.Forms.Label();
-            this.cmbMeterType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -60,6 +62,7 @@ namespace Director.Extensions.ModeC
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numGuard)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRetry)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,18 +95,21 @@ namespace Director.Extensions.ModeC
             this.tableLayoutPanel.Controls.Add(this.txtPassword, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.lblGuard, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.numGuard, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.lblObis, 0, 4);
-            this.tableLayoutPanel.Controls.Add(this.txtObis, 1, 4);
-            this.tableLayoutPanel.Controls.Add(this.lblData, 0, 6);
-            this.tableLayoutPanel.Controls.Add(this.txtData, 1, 6);
-            this.tableLayoutPanel.Controls.Add(this.treeObis, 0, 5);
-            this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 0, 7);
-            this.tableLayoutPanel.Controls.Add(this.lblType, 0, 3);
-            this.tableLayoutPanel.Controls.Add(this.cmbMeterType, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.lblObis, 0, 5);
+            this.tableLayoutPanel.Controls.Add(this.txtObis, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.lblData, 0, 7);
+            this.tableLayoutPanel.Controls.Add(this.txtData, 1, 7);
+            this.tableLayoutPanel.Controls.Add(this.treeObis, 0, 6);
+            this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 0, 8);
+            this.tableLayoutPanel.Controls.Add(this.lblType, 0, 4);
+            this.tableLayoutPanel.Controls.Add(this.cmbMeterType, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.lblRetry, 0, 3);
+            this.tableLayoutPanel.Controls.Add(this.numRetry, 1, 3);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 8;
+            this.tableLayoutPanel.RowCount = 9;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -189,7 +195,7 @@ namespace Director.Extensions.ModeC
             // 
             this.lblObis.AutoSize = true;
             this.lblObis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblObis.Location = new System.Drawing.Point(3, 120);
+            this.lblObis.Location = new System.Drawing.Point(3, 150);
             this.lblObis.Name = "lblObis";
             this.lblObis.Size = new System.Drawing.Size(74, 30);
             this.lblObis.TabIndex = 9;
@@ -199,10 +205,10 @@ namespace Director.Extensions.ModeC
             // txtObis
             // 
             this.txtObis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtObis.Location = new System.Drawing.Point(83, 123);
+            this.txtObis.Location = new System.Drawing.Point(83, 153);
             this.txtObis.Name = "txtObis";
             this.txtObis.Size = new System.Drawing.Size(199, 20);
-            this.txtObis.TabIndex = 5;
+            this.txtObis.TabIndex = 6;
             this.txtObis.TextChanged += new System.EventHandler(this.txtObis_TextChanged);
             // 
             // lblData
@@ -222,17 +228,17 @@ namespace Director.Extensions.ModeC
             this.txtData.Location = new System.Drawing.Point(83, 383);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(199, 20);
-            this.txtData.TabIndex = 7;
+            this.txtData.TabIndex = 8;
             // 
             // treeObis
             // 
             this.treeObis.CheckBoxes = true;
             this.tableLayoutPanel.SetColumnSpan(this.treeObis, 2);
             this.treeObis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeObis.Location = new System.Drawing.Point(3, 153);
+            this.treeObis.Location = new System.Drawing.Point(3, 183);
             this.treeObis.Name = "treeObis";
-            this.treeObis.Size = new System.Drawing.Size(279, 224);
-            this.treeObis.TabIndex = 6;
+            this.treeObis.Size = new System.Drawing.Size(279, 194);
+            this.treeObis.TabIndex = 7;
             this.treeObis.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeObis_AfterCheck);
             this.treeObis.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeObis_BeforeCollapse);
             this.treeObis.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeObis_BeforeExpand);
@@ -265,7 +271,7 @@ namespace Director.Extensions.ModeC
             this.cmbMode.Location = new System.Drawing.Point(3, 3);
             this.cmbMode.Name = "cmbMode";
             this.cmbMode.Size = new System.Drawing.Size(133, 21);
-            this.cmbMode.TabIndex = 8;
+            this.cmbMode.TabIndex = 9;
             this.cmbMode.SelectedIndexChanged += new System.EventHandler(this.cmbMode_SelectedIndexChanged);
             // 
             // btnRun
@@ -275,10 +281,69 @@ namespace Director.Extensions.ModeC
             this.btnRun.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(120, 28);
-            this.btnRun.TabIndex = 9;
+            this.btnRun.TabIndex = 10;
             this.btnRun.Text = "Run";
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblType.Location = new System.Drawing.Point(3, 120);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(74, 30);
+            this.lblType.TabIndex = 17;
+            this.lblType.Text = "Meter Type:";
+            this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cmbMeterType
+            // 
+            this.cmbMeterType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbMeterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMeterType.FormattingEnabled = true;
+            this.cmbMeterType.Items.AddRange(new object[] {
+            "1-Phase (E10126)",
+            "3-Phase (E30127)"});
+            this.cmbMeterType.Location = new System.Drawing.Point(83, 123);
+            this.cmbMeterType.Name = "cmbMeterType";
+            this.cmbMeterType.Size = new System.Drawing.Size(199, 21);
+            this.cmbMeterType.TabIndex = 5;
+            this.cmbMeterType.SelectedIndexChanged += new System.EventHandler(this.cmbMeterType_SelectedIndexChanged);
+            // 
+            // lblRetry
+            // 
+            this.lblRetry.AutoSize = true;
+            this.lblRetry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRetry.Location = new System.Drawing.Point(3, 90);
+            this.lblRetry.Name = "lblRetry";
+            this.lblRetry.Size = new System.Drawing.Size(74, 30);
+            this.lblRetry.TabIndex = 18;
+            this.lblRetry.Text = "Max Attempts:";
+            this.lblRetry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // numRetry
+            // 
+            this.numRetry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numRetry.Location = new System.Drawing.Point(83, 93);
+            this.numRetry.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numRetry.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numRetry.Name = "numRetry";
+            this.numRetry.Size = new System.Drawing.Size(199, 20);
+            this.numRetry.TabIndex = 4;
+            this.numRetry.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // tableLayoutPanel2
             // 
@@ -335,31 +400,6 @@ namespace Director.Extensions.ModeC
             this.lblResult.Text = "Result:";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblType.Location = new System.Drawing.Point(3, 90);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(74, 30);
-            this.lblType.TabIndex = 17;
-            this.lblType.Text = "Meter Type:";
-            this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbMeterType
-            // 
-            this.cmbMeterType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbMeterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMeterType.FormattingEnabled = true;
-            this.cmbMeterType.Items.AddRange(new object[] {
-            "1-Phase (E10126)",
-            "3-Phase (E30127)"});
-            this.cmbMeterType.Location = new System.Drawing.Point(83, 93);
-            this.cmbMeterType.Name = "cmbMeterType";
-            this.cmbMeterType.Size = new System.Drawing.Size(199, 21);
-            this.cmbMeterType.TabIndex = 4;
-            this.cmbMeterType.SelectedIndexChanged += new System.EventHandler(this.cmbMeterType_SelectedIndexChanged);
-            // 
             // ModeCTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +416,7 @@ namespace Director.Extensions.ModeC
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numGuard)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numRetry)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -406,5 +447,7 @@ namespace Director.Extensions.ModeC
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cmbMeterType;
+        private System.Windows.Forms.Label lblRetry;
+        private System.Windows.Forms.NumericUpDown numRetry;
     }
 }

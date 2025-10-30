@@ -189,6 +189,8 @@ namespace GXDLMSDirector
         public MainForm()
         {
             InitializeComponent();
+            ReadObjectMnu.Visible = false;
+            ReadObjectMnu.Enabled = false;
 #if DEBUG
             ImportMeterToSimulatorMnu.Visible = true;
 #endif
@@ -457,6 +459,40 @@ namespace GXDLMSDirector
             }
         }
 
+        static void HideProfileGenericReadOptions(IGXDLMSView view)
+        {
+            if (view == null)
+            {
+                return;
+            }
+            Type type = view.GetType();
+            if (!string.Equals(type.FullName, "Gurux.DLMS.UI.GXDLMSProfileGenericView", StringComparison.Ordinal))
+            {
+                return;
+            }
+            BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
+            void HideField(string fieldName)
+            {
+                FieldInfo fi = type.GetField(fieldName, flags);
+                if (fi != null)
+                {
+                    if (fi.GetValue(view) is Control ctrl)
+                    {
+                        ctrl.Visible = false;
+                        ctrl.Enabled = false;
+                    }
+                }
+            }
+
+            HideField("ReadFromRB");
+            HideField("ReadLastRB");
+            HideField("ReadLastTB");
+            HideField("DaysLbl");
+            HideField("ToLbl");
+            HideField("ToPick");
+            HideField("StartPick");
+        }
+
         private void SelectItem(object obj)
         {
             try
@@ -717,6 +753,7 @@ namespace GXDLMSDirector
                         st = d.Standard;
                     }
                     SelectedView = GXDlmsUi.GetView(Views, (GXDLMSObject)obj, st);
+                    HideProfileGenericReadOptions(SelectedView);
                     ObjectPanelFrame.Controls.Remove(HelpBtn);
 
                     foreach (Control it in ObjectPanelFrame.Controls)

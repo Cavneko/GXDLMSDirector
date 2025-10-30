@@ -448,17 +448,6 @@ namespace GXDLMSDirector
             WindowSizeTXTb.Text = device.WindowSizeTX.ToString();
             WindowSizeRXTb.Text = device.WindowSizeRX.ToString();
             InactivityTimeoutTb.Text = device.InactivityTimeout.ToString();
-            if (device is GXDLMSDevice modeEDevice)
-            {
-                ModeETimeoutTb.Text = modeEDevice.ModeETimeout.ToString();
-            }
-            else
-            {
-                ModeETimeoutTb.Text = string.Empty;
-            }
-            bool enableModeETimeout = (device is GXDLMSDevice) && device.InterfaceType == InterfaceType.HdlcWithModeE;
-            ModeETimeoutTb.Enabled = enableModeETimeout;
-            ModeETimeoutLbl.Enabled = enableModeETimeout;
             FrameDelayTb.Text = device.FrameDelay.ToString();
             ObjectDelayTb.Text = device.ObjectDelay.ToString();
             MaxPduTb.Text = device.PduSize.ToString();
@@ -855,17 +844,6 @@ namespace GXDLMSDirector
             else
             {
                 device.ObjectDelay = int.Parse(ObjectDelayTb.Text);
-            }
-            if (device is GXDLMSDevice modeEDevice)
-            {
-                if (ModeETimeoutTb.Text == "")
-                {
-                    modeEDevice.ModeETimeout = 60;
-                }
-                else
-                {
-                    modeEDevice.ModeETimeout = Math.Max(0, int.Parse(ModeETimeoutTb.Text));
-                }
             }
             if (MACSourceAddressTb.Text == "")
             {
@@ -1907,10 +1885,6 @@ namespace GXDLMSDirector
                     DeviceTab.TabPages.Remove(PlcFrame);
                 }
             }
-            bool modeESelected = type == InterfaceType.HdlcWithModeE;
-            bool enableModeETimeout = (Device is GXDLMSDevice) && modeESelected;
-            ModeETimeoutTb.Enabled = enableModeETimeout;
-            ModeETimeoutLbl.Enabled = enableModeETimeout;
         }
 
         private void StandardCb_SelectedIndexChanged(object sender, EventArgs e)

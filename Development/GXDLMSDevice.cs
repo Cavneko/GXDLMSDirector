@@ -263,27 +263,6 @@ namespace GXDLMSDirector
         }
 
         /// <summary>
-        /// Allowed time in seconds to reuse HDLC Mode E session before IEC handshake is retried.
-        /// </summary>
-        [DefaultValue(60)]
-        public int ModeETimeout
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Last moment when HDLC session succeeded while using Mode E.
-        /// </summary>
-        [Browsable(false)]
-        [XmlIgnore()]
-        public DateTime? LastModeEHdlcSuccessUtc
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Used logical client ID.
         /// </summary>
         /// <remarks>
@@ -406,8 +385,6 @@ namespace GXDLMSDirector
             this.KeepAlive.Interval = 40000;
             this.KeepAlive.Elapsed += new System.Timers.ElapsedEventHandler(KeepAlive_Elapsed);
             m_Status = DeviceState.Initialized;
-            ModeETimeout = 60;
-            LastModeEHdlcSuccessUtc = null;
         }
 
         /// <summary>

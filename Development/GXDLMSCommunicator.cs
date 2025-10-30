@@ -90,6 +90,11 @@ namespace GXDLMSDirector
         DateTime FrameSendTime = DateTime.MinValue;
         //Object transaction time.
         DateTime ObjectTransactionTime = DateTime.MinValue;
+        int? modeESerialBaudRate = null;
+        int modeESerialDataBits = 8;
+        Parity modeESerialParity = Parity.None;
+        StopBits modeESerialStopBits = StopBits.One;
+        bool modeESettingsValid = false;
 
 
         public GXDLMSCommunicator(GXDLMSDevice parent, IGXMedia media)
@@ -731,81 +736,81 @@ namespace GXDLMSDirector
             //Query device information.
             if (parent.InterfaceType == InterfaceType.HdlcWithModeE)
             {
-                if (parent.ModeETimeout > 0 && parent.LastModeEHdlcSuccessUtc.HasValue)
-                {
-                    TimeSpan sinceLastSuccess = DateTime.UtcNow - parent.LastModeEHdlcSuccessUtc.Value;
-                    if (sinceLastSuccess.TotalSeconds < parent.ModeETimeout)
-                    {
-                        manufactureID = parent.Manufacturer;
-                        GXLogWriter.WriteLog("Skipping IEC handshake because a recent HDLC session is still active.");
-                        return manufactureID;
-                    }
-                }
                 string data = "/?!\r\n";
                 if (manufacturer != null && !string.IsNullOrEmpty(manufacturer.IecAddress))
                 {
                     data = manufacturer.IecAddress + "\r\n";
                 }
-                else
+                else if (this.parent.HDLCAddressing == HDLCAddressType.SerialNumber)
                 {
-                    if (this.parent.HDLCAddressing == HDLCAddressType.SerialNumber)
-                    {
-                        data = "/?" + this.parent.PhysicalAddress + "!\r\n";
-                    }
+                    data = "/?" + this.parent.PhysicalAddress + "!\r\n";
                 }
+
+                if (serial != null)
+                {
+                    if (media.IsOpen)
+                    {
+                        media.Close();
+                    }
+                    serial.BaudRate = 300;
+                    serial.DataBits = 7;
+                    serial.Parity = Parity.Even;
+                    serial.StopBits = StopBits.One;
+                    media.Open();
+                    //Allow the meter to notice the new settings.
+                    Thread.Sleep(500);
+                }
+
                 GXLogWriter.WriteLog("IEC Sending:" + data);
                 ReceiveParameters<string> p = new ReceiveParameters<string>()
                 {
                     AllData = false,
                     Eop = Terminator,
-                    WaitTime = parent.WaitTime * 1000
+                    WaitTime = 1000
                 };
+
+                bool modeEHandshakeSucceeded = false;
                 lock (media.Synchronous)
                 {
-                    media.Send(data, null);
-                    if (!media.Receive(p))
+                    try
                     {
-                        //Try to move away from mode E.
-                        try
-                        {
-                            GXReplyData reply = new GXReplyData();
-                            this.ReadDLMSPacket(this.DisconnectRequest(), 1, reply);
-                        }
-                        catch (Exception)
-                        {
-                        }
-                        DiscIEC();
-                        string str = "Failed to receive reply from the device in given time.";
-                        GXLogWriter.WriteLog(str);
                         media.Send(data, null);
-                        if (!media.Receive(p))
+                        modeEHandshakeSucceeded = media.Receive(p);
+                        if (modeEHandshakeSucceeded && p.Reply == data)
                         {
-                            throw new Exception(str);
+                            p.Reply = null;
+                            modeEHandshakeSucceeded = media.Receive(p);
                         }
                     }
-                    //If echo is used.
-                    if (p.Reply == data)
+                    catch
                     {
-                        p.Reply = null;
-                        if (!media.Receive(p))
-                        {
-                            //Try to move away from mode E.
-                            GXReplyData reply = new GXReplyData();
-                            this.ReadDLMSPacket(this.DisconnectRequest(), 1, reply);
-                            if (serial != null)
-                            {
-                                DiscIEC();
-                                serial.DtrEnable = serial.RtsEnable = false;
-                                serial.BaudRate = 9600;
-                                serial.DtrEnable = serial.RtsEnable = true;
-                                DiscIEC();
-                            }
-                            data = "Failed to receive reply from the device in given time.";
-                            GXLogWriter.WriteLog(data);
-                            throw new Exception(data);
-                        }
+                        modeEHandshakeSucceeded = false;
                     }
                 }
+
+                if (!modeEHandshakeSucceeded || string.IsNullOrEmpty(p.Reply))
+                {
+                    GXLogWriter.WriteLog("Mode E handshake timed out. Trying direct HDLC handshake at 19200 baud.");
+                    if (serial != null)
+                    {
+                        media.Close();
+                        serial.BaudRate = 19200;
+                        serial.DataBits = 8;
+                        serial.Parity = Parity.None;
+                        serial.StopBits = StopBits.One;
+                        media.Open();
+                        Thread.Sleep(500);
+                    }
+                    modeESettingsValid = false;
+                    if (string.IsNullOrEmpty(manufactureID))
+                    {
+                        manufactureID = parent.Manufacturer;
+                    }
+                    return manufactureID;
+                }
+
+                //Restore the general wait time for subsequent reads.
+                p.WaitTime = parent.WaitTime * 1000;
                 int pos = 0;
                 //With some meters there might be some extra invalid chars. Remove them.
                 if (p.Reply != null)
@@ -894,6 +899,11 @@ namespace GXDLMSDirector
                         serial.DataBits = 8;
                         serial.Parity = Parity.None;
                         serial.StopBits = StopBits.One;
+                        modeESerialBaudRate = serial.BaudRate;
+                        modeESerialDataBits = serial.DataBits;
+                        modeESerialParity = serial.Parity;
+                        modeESerialStopBits = serial.StopBits;
+                        modeESettingsValid = true;
                         media.Open();
                     }
                     //Some meters need this sleep. Do not remove.
@@ -1132,26 +1142,11 @@ namespace GXDLMSDirector
         /// Initialize serial port connection to COSEM/DLMS device.
         /// </summary>
         /// <returns></returns>
-        void InitSerial(bool skipIecHandshake = false)
+        void InitSerial()
         {
             try
             {
-                if (skipIecHandshake)
-                {
-                    if (!media.IsOpen)
-                    {
-                        media.Open();
-                    }
-                    if (media is GXSerial)
-                    {
-                        //Some meters need a little break.
-                        Thread.Sleep(1000);
-                    }
-                }
-                else
-                {
-                    InitializeIEC();
-                }
+                InitializeIEC();
             }
             catch (Exception Ex)
             {
@@ -1297,47 +1292,12 @@ namespace GXDLMSDirector
             client.IncreaseInvocationCounterForGMacAuthentication = parent.IncreaseInvocationCounterForGMacAuthentication;
         }
 
-        bool ShouldSkipModeEHandshake()
-        {
-            if (parent.InterfaceType != InterfaceType.HdlcWithModeE)
-            {
-                return false;
-            }
-            if (parent.ModeETimeout <= 0)
-            {
-                return false;
-            }
-            if (!parent.LastModeEHdlcSuccessUtc.HasValue)
-            {
-                return false;
-            }
-            return (DateTime.UtcNow - parent.LastModeEHdlcSuccessUtc.Value).TotalSeconds < parent.ModeETimeout;
-        }
-
         public void InitializeConnection(bool force)
         {
-            bool skipModeEHandshake = ShouldSkipModeEHandshake();
-            if (!skipModeEHandshake)
-            {
-                PerformInitializeConnection(force, false);
-                return;
-            }
-            try
-            {
-                PerformInitializeConnection(force, true);
-            }
-            catch (Exception)
-            {
-                parent.LastModeEHdlcSuccessUtc = null;
-                if (media != null && media.IsOpen)
-                {
-                    media.Close();
-                }
-                PerformInitializeConnection(true, false);
-            }
+            PerformInitializeConnection(force);
         }
 
-        void PerformInitializeConnection(bool force, bool skipModeEHandshake)
+        void PerformInitializeConnection(bool force)
         {
             if (force || !media.IsOpen)
             {
@@ -1348,7 +1308,7 @@ namespace GXDLMSDirector
                 if (media is GXSerial)
                 {
                     GXLogWriter.WriteLog("Initializing serial connection.");
-                    InitSerial(skipModeEHandshake);
+                    InitSerial();
                     connectionStartTime = DateTime.Now;
                 }
                 else if (media is GXNet)
@@ -1522,10 +1482,6 @@ namespace GXDLMSDirector
                         client.ParseApplicationAssociationResponse(reply.Data);
                     }
                     parent.KeepAliveStart();
-                    if (parent.InterfaceType == InterfaceType.HdlcWithModeE)
-                    {
-                        parent.LastModeEHdlcSuccessUtc = DateTime.UtcNow;
-                    }
                 }
             }
             catch (Exception)

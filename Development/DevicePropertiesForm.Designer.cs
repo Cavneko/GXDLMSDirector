@@ -173,8 +173,6 @@ namespace GXDLMSDirector
             this.IgnoreTimeZoneCb = new System.Windows.Forms.CheckBox();
             this.UseProtectedReleaseCb = new System.Windows.Forms.CheckBox();
             this.InactivityTimeoutTb = new System.Windows.Forms.TextBox();
-            this.ModeETimeoutTb = new System.Windows.Forms.TextBox();
-            this.ModeETimeoutLbl = new System.Windows.Forms.Label();
             this.InactivityTimeoutLbl = new System.Windows.Forms.Label();
             this.ServiceClassCb = new System.Windows.Forms.ComboBox();
             this.StandardCb = new System.Windows.Forms.ComboBox();
@@ -1478,8 +1476,6 @@ namespace GXDLMSDirector
             this.AdvancedTab.Controls.Add(this.IgnoreTimeStatusCb);
             this.AdvancedTab.Controls.Add(this.IgnoreTimeZoneCb);
             this.AdvancedTab.Controls.Add(this.UseProtectedReleaseCb);
-            this.AdvancedTab.Controls.Add(this.ModeETimeoutTb);
-            this.AdvancedTab.Controls.Add(this.ModeETimeoutLbl);
             this.AdvancedTab.Controls.Add(this.InactivityTimeoutTb);
             this.AdvancedTab.Controls.Add(this.InactivityTimeoutLbl);
             this.AdvancedTab.Controls.Add(this.ServiceClassCb);
@@ -1667,24 +1663,6 @@ namespace GXDLMSDirector
             this.InactivityTimeoutLbl.TabIndex = 46;
             this.InactivityTimeoutLbl.Text = "Inactivity timeout";
             // 
-            // ModeETimeoutTb
-            // 
-            this.helpProvider1.SetHelpKeyword(this.ModeETimeoutTb, "ModeETimeout");
-            this.helpProvider1.SetHelpNavigator(this.ModeETimeoutTb, System.Windows.Forms.HelpNavigator.Topic);
-            this.ModeETimeoutTb.Location = new System.Drawing.Point(154, 179);
-            this.ModeETimeoutTb.Name = "ModeETimeoutTb";
-            this.helpProvider1.SetShowHelp(this.ModeETimeoutTb, true);
-            this.ModeETimeoutTb.Size = new System.Drawing.Size(93, 20);
-            this.ModeETimeoutTb.TabIndex = 7;
-            // 
-            // ModeETimeoutLbl
-            // 
-            this.ModeETimeoutLbl.AutoSize = true;
-            this.ModeETimeoutLbl.Location = new System.Drawing.Point(11, 183);
-            this.ModeETimeoutLbl.Name = "ModeETimeoutLbl";
-            this.ModeETimeoutLbl.Size = new System.Drawing.Size(115, 13);
-            this.ModeETimeoutLbl.TabIndex = 70;
-            this.ModeETimeoutLbl.Text = "Mode E timeout (secs)";
             // 
             // ServiceClassCb
             // 
@@ -2446,8 +2424,6 @@ namespace GXDLMSDirector
         private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.HelpProvider conformanceHelpProvider;
         private System.Windows.Forms.TextBox InactivityTimeoutTb;
-        private System.Windows.Forms.TextBox ModeETimeoutTb;
-        private System.Windows.Forms.Label ModeETimeoutLbl;
         private System.Windows.Forms.Label InactivityTimeoutLbl;
         private System.Windows.Forms.TextBox MaxPduTb;
         private System.Windows.Forms.Label MaxPduLbl;

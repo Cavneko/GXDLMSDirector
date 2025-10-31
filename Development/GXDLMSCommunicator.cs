@@ -90,11 +90,6 @@ namespace GXDLMSDirector
         DateTime FrameSendTime = DateTime.MinValue;
         //Object transaction time.
         DateTime ObjectTransactionTime = DateTime.MinValue;
-        int? modeESerialBaudRate = null;
-        int modeESerialDataBits = 8;
-        Parity modeESerialParity = Parity.None;
-        StopBits modeESerialStopBits = StopBits.One;
-        bool modeESettingsValid = false;
 
 
         public GXDLMSCommunicator(GXDLMSDevice parent, IGXMedia media)
@@ -757,16 +752,30 @@ namespace GXDLMSDirector
                     serial.Parity = Parity.Even;
                     serial.StopBits = StopBits.One;
                     media.Open();
-                    //Allow the meter to notice the new settings.
+                    try
+                    {
+                        serial.DtrEnable = true;
+                        serial.RtsEnable = true;
+                    }
+                    catch
+                    {
+                        //Ignore probe control errors.
+                    }
                     Thread.Sleep(500);
                 }
 
                 GXLogWriter.WriteLog("IEC Sending:" + data);
+                int iecWait = parent.WaitTime * 1000;
+                if (iecWait <= 0)
+                {
+                    iecWait = 5000;
+                }
+                iecWait = Math.Max(iecWait, 3000);
                 ReceiveParameters<string> p = new ReceiveParameters<string>()
                 {
                     AllData = false,
                     Eop = Terminator,
-                    WaitTime = 1000
+                    WaitTime = iecWait
                 };
 
                 bool modeEHandshakeSucceeded = false;
@@ -774,6 +783,7 @@ namespace GXDLMSDirector
                 {
                     try
                     {
+                        p.Reply = null;
                         media.Send(data, null);
                         modeEHandshakeSucceeded = media.Receive(p);
                         if (modeEHandshakeSucceeded && p.Reply == data)
@@ -793,6 +803,16 @@ namespace GXDLMSDirector
                     GXLogWriter.WriteLog("Mode E handshake timed out. Trying direct HDLC handshake at 19200 baud.");
                     if (serial != null)
                     {
+                        try
+                        {
+                            string discData = ((char)0x01) + "B0" + (char)0x03 + "\r\n";
+                            media.Send(discData, null);
+                            Thread.Sleep(200);
+                        }
+                        catch
+                        {
+                            //Ignore.
+                        }
                         media.Close();
                         serial.BaudRate = 19200;
                         serial.DataBits = 8;
@@ -801,7 +821,6 @@ namespace GXDLMSDirector
                         media.Open();
                         Thread.Sleep(500);
                     }
-                    modeESettingsValid = false;
                     if (string.IsNullOrEmpty(manufactureID))
                     {
                         manufactureID = parent.Manufacturer;
@@ -809,7 +828,6 @@ namespace GXDLMSDirector
                     return manufactureID;
                 }
 
-                //Restore the general wait time for subsequent reads.
                 p.WaitTime = parent.WaitTime * 1000;
                 int pos = 0;
                 //With some meters there might be some extra invalid chars. Remove them.
@@ -899,11 +917,6 @@ namespace GXDLMSDirector
                         serial.DataBits = 8;
                         serial.Parity = Parity.None;
                         serial.StopBits = StopBits.One;
-                        modeESerialBaudRate = serial.BaudRate;
-                        modeESerialDataBits = serial.DataBits;
-                        modeESerialParity = serial.Parity;
-                        modeESerialStopBits = serial.StopBits;
-                        modeESettingsValid = true;
                         media.Open();
                     }
                     //Some meters need this sleep. Do not remove.
@@ -1294,11 +1307,6 @@ namespace GXDLMSDirector
 
         public void InitializeConnection(bool force)
         {
-            PerformInitializeConnection(force);
-        }
-
-        void PerformInitializeConnection(bool force)
-        {
             if (force || !media.IsOpen)
             {
                 if (!string.IsNullOrEmpty(parent.Manufacturer))
@@ -1490,8 +1498,6 @@ namespace GXDLMSDirector
                 ReadDLMSPacket(ReleaseRequest(), 1, reply);
                 reply.Clear();
                 ReadDLMSPacket(DisconnectRequest(), 1, reply);
-                // Preserve the last successful HDLC timestamp so that we can
-                // retry a direct HDLC reconnect without forcing the IEC handshake.
                 if (media is GXSerial && parent.InterfaceType == InterfaceType.HdlcWithModeE)
                 {
                     ReceiveParameters<string> p = new ReceiveParameters<string>()

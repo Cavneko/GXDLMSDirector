@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>itl</Identification>
+  <Name>Italian Standard</Name>
+  <UseLN>true</UseLN>
+  <ObisCodes>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.41.255</LogicalName>
+      <Description>Block transfer status</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.33.255</LogicalName>
+      <Description>Global Frame Counter Thresholds</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.44.255</LogicalName>
+      <Description>Synchronization Algorithm</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.20.255</LogicalName>
+      <Description>Synchronization Registers</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.3.255</LogicalName>
+      <Description>Valve Configuration PGV</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.1.255</LogicalName>
+      <Description>Valve Enable Password</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.2.255</LogicalName>
+      <Description>Maximum Password Attempts</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.6.255</LogicalName>
+      <Description>Opening Command Duration Validity</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.26.255</LogicalName>
+      <Description>Leakage Test Parameters</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.7.255</LogicalName>
+      <Description>Valve Closure Cause</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.42.255</LogicalName>
+      <Description>Session Error Reason Code</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.43.255</LogicalName>
+      <Description>Invoke Id of Erroneous APDU</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.30.255</LogicalName>
+      <Description>Installer/Maintainer Setup</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.46.255</LogicalName>
+      <Description>User Message</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.31.255</LogicalName>
+      <Description>Installer/Maintainer Remaining Time</Description>
+      <Interface>Register</Interface>
+      <ObjectType>3</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.4.255</LogicalName>
+      <Description>Number Of Days Without Comms</Description>
+      <Interface>Register</Interface>
+      <ObjectType>3</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.5.255</LogicalName>
+      <Description>Number Of Days Without Comms Threshold</Description>
+      <Interface>RegisterMonitor</Interface>
+      <ObjectType>21</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.25.255</LogicalName>
+      <Description>Tampering Attempts Threshold</Description>
+      <Interface>RegisterMonitor</Interface>
+      <ObjectType>21</ObjectType>
+      <Attributes />
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.96.1.3.255</LogicalName>
+      <Description>Equipment Class Identifier</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>Enum</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Type A2 Device-Generic Technology</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Type A2 Device-Diaphragm Meter</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue> Type A2 Device-Mass Flow Meter</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Type A2 Device-Ultrasonic Meter</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>Gateway-Type Low-PP4</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>6</Value>
+              <UIValue>Gateway-Type High-PP4</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>7</Value>
+              <UIValue>Data Concentrator-Type Low-PP3</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>8</Value>
+              <UIValue>Data Concentrator-Type High-PP3</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>9</Value>
+              <UIValue>Repeater-Type xx</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>10</Value>
+              <UIValue>Other</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.96.11.2.255</LogicalName>
+      <Description>Event Code</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Index>2</Index>
+          <Values>
+            <GXObisValueItem>
+              <Value>13</Value>
+              <UIValue>Local Communication Session: Start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>14</Value>
+              <UIValue>Local Communication Session: End</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>16</Value>
+              <UIValue>Non Metrological Parameter Configuration</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>70</Value>
+              <UIValue>Power - Critical power outage: start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>71</Value>
+              <UIValue>Power - Critical power outage: end</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>72</Value>
+              <UIValue>Power - Main power outage: start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>73</Value>
+              <UIValue>Power - Main power outage: end</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>74</Value>
+              <UIValue>Power - Battery level below 10%: start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>76</Value>
+              <UIValue>Power - AC Mains power failure (above limit) for more than 30 min: start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>77</Value>
+              <UIValue>Power - AC Mains power failure (above limit) for more than 30 min: end</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>80</Value>
+              <UIValue>Tamper - Device tamper detection: start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>81</Value>
+              <UIValue>Tamper - Device tamper detection: end</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>84</Value>
+              <UIValue>Remote communication module failure</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>85</Value>
+              <UIValue>Software - Severe software error</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>86</Value>
+              <UIValue>DST (daylight saving time): start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>87</Value>
+              <UIValue>DST (daylight saving time): end</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>96</Value>
+              <UIValue>New Firmware upgrade initiated</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>97</Value>
+              <UIValue>Firmware upgrade activation date</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>98</Value>
+              <UIValue>Firmware upgrade verification OK</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>99</Value>
+              <UIValue>Firmware upgrade verification failed</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>100</Value>
+              <UIValue>Firmware upgrade activation successful</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>101</Value>
+              <UIValue>Firmware upgrade activation failed</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>129</Value>
+              <UIValue>Management client key updated (KEYC)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>130</Value>
+              <UIValue>Installer/maintenance client key updated (KEYT)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>131</Value>
+              <UIValue>Guarantor authority client key updated (KEYS)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>132</Value>
+              <UIValue>Gateway client key updated (KEYN)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>133</Value>
+              <UIValue>Broadcasting client key updated (KEYM)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>171</Value>
+              <UIValue>Remote Connection: start</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>172</Value>
+              <UIValue>Remote Connection: end</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>173</Value>
+              <UIValue>Remote Connection: timeout</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>174</Value>
+              <UIValue>Maintenance Window: hardware failure</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>175</Value>
+              <UIValue>Maintenance Window: software failure</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>176</Value>
+              <UIValue>Maintenance Window: activation</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>177</Value>
+              <UIValue>Maintenance Window: successfully termination</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.1.1.0.255</LogicalName>
+      <Description>UNIX Time</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Index>2</Index>
+          <UIType>DateTime</UIType>
+          <Values />
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.36.255</LogicalName>
+      <Description>PM1 first detected UNIX Time</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Index>2</Index>
+          <UIType>DateTime</UIType>
+          <Access>1</Access>
+          <Values />
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.96.11.4.255</LogicalName>
+      <Description>Directory event code</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Index>2</Index>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Device inscribed in the White List</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Device deleted from the White List</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>Device inscribed in the Block List</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Device deleted from the Black List</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.21.0.14.255</LogicalName>
+      <Description>Command Buffer</Description>
+      <Interface>ExtendedRegister</Interface>
+      <ObjectType>4</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Index>1</Index>
+          <Type>OctetString</Type>
+          <Access>1</Access>
+          <Values />
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+        <GXDLMSAttributeSettings>
+          <Index>2</Index>
+          <Type>Array</Type>
+          <Values />
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.48.255</LogicalName>
+      <Description>White Listed Devices</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Index>2</Index>
+          <Type>Structure</Type>
+          <Access>2</Access>
+          <Values />
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.42.0.0.255</LogicalName>
+      <Description>Logical Device Name</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>String</Type>
+          <UIType>String</UIType>
+          <Access>1</Access>
+          <Values />
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.94.39.29.255</LogicalName>
+      <Description>PM1 Response Status</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Index>2</Index>
+          <Type>Enum</Type>
+          <Values>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>SUCCESS</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue> TIME_TO_LIVE_EXPIRED</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>NO_ANSWER_FROM_PEER</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Failed</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>255</Value>
+              <UIValue>Undefined</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+  </ObisCodes>
+  <Standard>2</Standard>
+  <UtcTimeZone>true</UtcTimeZone>
+  <StartProtocol>DLMS</StartProtocol>
+  <WebAddress />
+  <Settings>
+    <GXAuthentication>
+      <Type>None</Type>
+      <Name>Public</Name>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <Name>Management</Name>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <Name>Guarantor Authority</Name>
+      <ClientAddress>48</ClientAddress>
+      <ClientID xsi:type="xsd:int">48</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <Name>Installer/Maintainer</Name>
+      <ClientAddress>3</ClientAddress>
+      <ClientID xsi:type="xsd:int">3</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <Name>Broadcasting</Name>
+      <ClientAddress>32</ClientAddress>
+      <ClientID xsi:type="xsd:int">32</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <Name>Gateway</Name>
+      <ClientAddress>64</ClientAddress>
+      <ClientID xsi:type="xsd:int">64</ClientID>
+      <Password />
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>1</HDLCAddress>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+  <SystemTitle />
+  <BlockCipherKey />
+  <AuthenticationKey />
+</GXManufacturer>

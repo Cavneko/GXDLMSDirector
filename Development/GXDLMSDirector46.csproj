@@ -20,10 +20,10 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\wsw\Documents\Publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -33,11 +33,10 @@
     <SupportUrl>http://gurux.fi/GXDLMSDirectorHelp</SupportUrl>
     <ErrorReportUrl>http://gurux.fi/project/issues/GXDLMSDirector</ErrorReportUrl>
     <ProductName>GXDLMSDirector</ProductName>
-    <PublisherName>Gurux Oy</PublisherName>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <PublisherName>Corinex</PublisherName>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.0.0.0</ApplicationVersion>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -563,6 +562,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ConnectMnu.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\OBIS\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ConformanceTests\DLMS\ActionSchedule.xml">

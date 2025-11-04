@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>STA</Identification>
+  <Name>Shenzhen Star Instrument Co Ltd</Name>
+  <UseLN>true</UseLN>
+  <ObisCodes />
+  <WebAddress />
+  <Address>U2hlbnpoZW4NCkNoaW5hDQo=</Address>
+  <Settings>
+    <GXAuthentication>
+      <Type>Low</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+  <SystemTitle />
+  <BlockCipherKey />
+  <AuthenticationKey />
+</GXManufacturer>

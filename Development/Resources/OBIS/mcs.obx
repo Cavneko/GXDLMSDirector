@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>MCS</Identification>
+  <Name>MetCom Solutions GmbH</Name>
+  <UseLN>true</UseLN>
+  <ObisCodes />
+  <IecAddress />
+  <WebAddress>www.metcoms.com</WebAddress>
+  <Settings>
+    <GXAuthentication>
+      <Type>None</Type>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Selected>true</Selected>
+      <Type>Low</Type>
+      <Name>Reader</Name>
+      <ClientAddress>4</ClientAddress>
+      <ClientID xsi:type="xsd:int">4</ClientID>
+      <Password>12345678</Password>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Selected>true</Selected>
+      <Type>Low</Type>
+      <Name>Management</Name>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+      <Password>12345678</Password>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <ClientAddress>102</ClientAddress>
+      <ClientID xsi:type="xsd:int">102</ClientID>
+      <Password />
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>127</PhysicalAddress>
+      <LogicalAddress>1</LogicalAddress>
+      <Size>4</Size>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+  <SystemTitle />
+  <BlockCipherKey />
+  <AuthenticationKey />
+  <SupporterdInterfaces>19</SupporterdInterfaces>
+</GXManufacturer>

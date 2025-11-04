@@ -139,8 +139,38 @@ namespace GXDLMSDirector
             if (Dirty)
             {
                 this.Text += " *";
+        }
+    }
+
+    private static bool ImportBundledManufacturerData(bool overwrite)
+    {
+        string bundlePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "OBIS");
+        if (!Directory.Exists(bundlePath))
+        {
+            return false;
+        }
+        string targetPath = GXManufacturerCollection.ObisCodesPath;
+        Directory.CreateDirectory(targetPath);
+        bool copied = false;
+        foreach (string sourceFile in Directory.EnumerateFiles(bundlePath))
+        {
+            string destinationFile = Path.Combine(targetPath, Path.GetFileName(sourceFile));
+            if (!overwrite && File.Exists(destinationFile))
+            {
+                continue;
+            }
+            try
+            {
+                File.Copy(sourceFile, destinationFile, overwrite);
+                copied = true;
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine($"Failed to copy bundled manufacturer data from {sourceFile} to {destinationFile}. Error: {ex.Message}");
             }
         }
+        return copied;
+    }
 
         internal void SetDirty(bool dirty)
         {
@@ -4398,19 +4428,16 @@ namespace GXDLMSDirector
                 MacroEditor.OnSet += MacroEditor_OnSet;
                 MacroEditor.OnAction += MacroEditor_OnAction;
                 MacroEditor.OnExecuted += ActionsView_OnExecuted;
-                if (GXManufacturerCollection.IsFirstRun())
+                string bundledObisPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "OBIS");
+                bool hasBundledDefaults = Directory.Exists(bundledObisPath);
+                updateManufactureSettingsToolStripMenuItem.Visible = hasBundledDefaults;
+                updateManufactureSettingsToolStripMenuItem.Enabled = hasBundledDefaults;
+
+                bool importedDefaults = ImportBundledManufacturerData(false);
+                if (!importedDefaults)
                 {
-                    if (MessageBox.Show(this, GXDLMSDirector.Properties.Resources.InstallManufacturersOnlineTxt, GXDLMSDirector.Properties.Resources.GXDLMSDirectorTxt, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            GXManufacturerCollection.UpdateManufactureSettings();
-                        }
-                        catch (Exception ex)
-                        {
-                            GXDLMS.Common.Error.ShowError(this, ex);
-                        }
-                    }
+                    // Ensure application data folder exists even if bundle is missing.
+                    GXManufacturerCollection.IsFirstRun();
                 }
                 Manufacturers = new GXManufacturerCollection();
                 GXManufacturerCollection.ReadManufacturerSettings(Manufacturers);
@@ -5174,12 +5201,6 @@ namespace GXDLMSDirector
                         {
                             //Skip error.
                         }
-                        //If there are updates available.
-                        if (isConnected && GXManufacturerCollection.IsUpdatesAvailable())
-                        {
-                            main.BeginInvoke(new CheckUpdatesEventHandler(OnNewObisCodes), new object[] { main });
-                            break;
-                        }
                     }
                     //Wait for a day before next check.
                     System.Threading.Thread.Sleep(DateTime.Now.AddDays(1) - DateTime.Now);
@@ -5193,11 +5214,6 @@ namespace GXDLMSDirector
             }
         }
 
-        static void OnNewObisCodes(MainForm form)
-        {
-            form.updateManufactureSettingsToolStripMenuItem.Visible = true;
-        }
-
         static void OnNewAppVersion(MainForm form)
         {
             form.UpdateToLatestVersionMnu.Visible = true;
@@ -5207,13 +5223,30 @@ namespace GXDLMSDirector
         {
             try
             {
-                if (MessageBox.Show(this, GXDLMSDirector.Properties.Resources.UpdateManufacturersOnlineTxt, GXDLMSDirector.Properties.Resources.GXDLMSDirectorTxt, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                if (MessageBox.Show(this,
+                    "Reload manufacturer and OBIS definitions from the bundled resources? Existing files will be overwritten.",
+                    GXDLMSDirector.Properties.Resources.GXDLMSDirectorTxt,
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) != DialogResult.Yes)
                 {
-                    GXManufacturerCollection.UpdateManufactureSettings();
-                    Manufacturers = new GXManufacturerCollection();
-                    GXManufacturerCollection.ReadManufacturerSettings(Manufacturers);
+                    return;
                 }
-                updateManufactureSettingsToolStripMenuItem.Visible = false;
+                if (!ImportBundledManufacturerData(true))
+                {
+                    MessageBox.Show(this,
+                        "Bundled manufacturer resources were not found in the installation package.",
+                        GXDLMSDirector.Properties.Resources.GXDLMSDirectorTxt,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+                Manufacturers = new GXManufacturerCollection();
+                GXManufacturerCollection.ReadManufacturerSettings(Manufacturers);
+                MessageBox.Show(this,
+                    "Manufacturer and OBIS definitions were reloaded from the bundled resources.",
+                    GXDLMSDirector.Properties.Resources.GXDLMSDirectorTxt,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
             catch (Exception Ex)
             {

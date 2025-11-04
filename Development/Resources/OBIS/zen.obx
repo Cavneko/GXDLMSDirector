@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>ZEN</Identification>
+  <Name>ZenMeter Solutions Pvt. Ltd.</Name>
+  <ObisCodes>
+    <GXObisCode>
+      <LogicalName>0.0.94.91.18.255</LogicalName>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Event Status Word 1 (ESW-1)</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>1/2-R Phase- Voltage missing for 3 phase meter (Occurrence/Restoration)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>3/4 Y Phase- Voltage missing</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>5/6 B Phase- Voltage missing</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>7/8 Over voltage in any phase</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>9/10 Low voltage in any phase</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>11/12 Voltage unbalance</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>6</Value>
+              <UIValue>51/52 R Phase current reverse (Import type only)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>7</Value>
+              <UIValue>53/54 Y Phase current reverse (Import type only)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>8</Value>
+              <UIValue>55/56 B Phase current reverse (Import type only)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>9</Value>
+              <UIValue>63/64 Current unbalance</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>10</Value>
+              <UIValue>65/66 Current bypass/short</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>11</Value>
+              <UIValue>67/67 Over current in any phase</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>12</Value>
+              <UIValue>205/206 Very low PF</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>51</Value>
+              <UIValue>69/70-Earth Loading</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>81</Value>
+              <UIValue>201/202-Influence of permanent magnet or ad/dc electromagnet</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>82</Value>
+              <UIValue>203/204-Neutral disturbance-HF, dc or alternate method.</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>83</Value>
+              <UIValue>251-Meter cover opening.</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>84</Value>
+              <UIValue>301/302-Meter load disconnected/Meter load connected.</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>85</Value>
+              <UIValue>Last Gasp-Occurrence</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>86</Value>
+              <UIValue>First Breath-Restoration.</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>87</Value>
+              <UIValue>Increment in billing counter (Manual/MRI reset).</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>1.0.96.128.30.255</LogicalName>
+      <Description>Passive Relay Time</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>Structure</Type>
+          <Values />
+          <Xml>
+            &lt;Structure&gt;
+            &lt;UInt32 Name="Reconnection interval" Value="" /&gt;
+            &lt;UInt32 Name="Lockout time" Value="" /&gt;
+            &lt;UInt8 Name="Reconnection attempts" Value="" /&gt;
+            &lt;OctetString UIType="Gurux.DLMS.GXDateTime" Name="Activation time" Value="" /&gt;
+            &lt;/Structure&gt;
+          </Xml>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+  </ObisCodes>
+  <Standard>1</Standard>
+  <WebAddress>http://www.elcia.in</WebAddress>
+  <Settings>
+    <GXAuthentication>
+      <Type>None</Type>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>Low</Type>
+      <ClientAddress>17</ClientAddress>
+      <ClientID xsi:type="xsd:int">17</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>High</Type>
+      <ClientAddress>18</ClientAddress>
+      <ClientID xsi:type="xsd:int">18</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <ClientAddress>20</ClientAddress>
+      <ClientID xsi:type="xsd:int">20</ClientID>
+      <Password />
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>1</HDLCAddress>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>2</HDLCAddress>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+  <SystemTitle />
+  <BlockCipherKey />
+  <AuthenticationKey />
+</GXManufacturer>

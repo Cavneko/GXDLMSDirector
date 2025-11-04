@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>SEN</Identification>
+  <Name>Sensus Metering Systems</Name>
+  <UseLN>true</UseLN>
+  <ObisCodes>
+    <GXObisCode>
+      <LogicalName>0.0.21.0.1.255</LogicalName>
+      <Description>Ch. 0 Standard readout parametrization  #2</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Values />
+          <Xml>
+            &lt;Array&gt;
+            &lt;Structure&gt;
+            &lt;UInt16 UIType="Gurux.DLMS.Enums.ObjectType" Name="Object Type" Value="" /&gt;
+            &lt;OctetString UIType="LogicalName" Name="Logical Name" Value="" /&gt;
+            &lt;UInt8 Name="Index" Value="" /&gt;
+            &lt;UInt8 Name="Data Index" Value="" /&gt;
+            &lt;/Structure&gt;
+            &lt;/Array&gt;
+          </Xml>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.21.0.2.255</LogicalName>
+      <Description>Ch. 0 Standard readout parametrization  #3</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Values />
+          <Xml>
+            &lt;Array&gt;
+            &lt;Structure&gt;
+            &lt;UInt16 UIType="Gurux.DLMS.Enums.ObjectType" Name="Object Type" Value="" /&gt;
+            &lt;OctetString UIType="LogicalName" Name="Logical Name" Value="" /&gt;
+            &lt;UInt8 Name="Index" Value="" /&gt;
+            &lt;UInt8 Name="Data Index" Value="" /&gt;
+            &lt;/Structure&gt;
+            &lt;/Array&gt;
+          </Xml>
+          <UIValueType>0</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.96.5.0.255</LogicalName>
+      <Description>Ch. 0 Internal operating status, global</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>Configuration program change</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Voltage cut</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>No Energy Storage Device</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>EOB Reset</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Manual Reset</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>Time change </UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>6</Value>
+              <UIValue>Power failure </UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>7</Value>
+              <UIValue>AutoReset</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>8</Value>
+              <UIValue>Current tariff 1</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>9</Value>
+              <UIValue>Current tariff 2</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>10</Value>
+              <UIValue>Current tariff 3</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>11</Value>
+              <UIValue>Magnetic tamp</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>12</Value>
+              <UIValue>DST </UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>13</Value>
+              <UIValue>Temperature </UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>14</Value>
+              <UIValue>Wrong cable connection</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>15</Value>
+              <UIValue>Sag/Swell</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>16</Value>
+              <UIValue>Terminal cover</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>17</Value>
+              <UIValue>Top cover</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>18</Value>
+              <UIValue>Over current</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.97.97.0.255</LogicalName>
+      <Description>Ch. 0 Error object #1</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>Clock initialization</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Memory error</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Low/Failure Storage Device </UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>Meter initialization</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Password changed</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.97.97.1.255</LogicalName>
+      <Description>Ch. 0 Error object #2</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>Voltage cut (L1)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Voltage cut (L2)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Voltage cut (L3)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>Missing neutral line connection</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Current Missing (L1)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>Current Missing (L2)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>6</Value>
+              <UIValue>Current Missing (L3)</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.97.97.2.255</LogicalName>
+      <Description>Ch. 0 Error object #3</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>Reverse current (L1))</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Reverse current (L2)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Reverse current (L3)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>Phase and neutral wire swapped (L1)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Phase and neutral wire swapped (L2)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>Phase and neutral wire swapped (L3)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>6</Value>
+              <UIValue>Terminal cover open</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>7</Value>
+              <UIValue>Top cover open</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.97.97.3.255</LogicalName>
+      <Description>Ch. 0 Error object #4</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>Over current (L1)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Over current (L2)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Over current (L3)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>Low voltage (L1)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Low voltage (L2)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>Low voltage (L3)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>6</Value>
+              <UIValue>Sum Li PF under limit threshold</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.97.97.4.255</LogicalName>
+      <Description>Ch. 0 Error object #5</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>Phase sequence reversal (L2-L3)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Phase sequence reversal (L1-L3)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Phase sequence reversal (L1-L2)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>Phaseneutral bypassing (L1-N)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Phaseneutral bypassing (L2-N)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>Phaseneutral bypassing (L3-N)</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>6</Value>
+              <UIValue>Magnetic interference detected</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>7</Value>
+              <UIValue>Wrong password tried (3 times)</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>0.0.97.97.5.255</LogicalName>
+      <Description>Ch. 0 Error object #6</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Value</Name>
+          <Index>2</Index>
+          <Type>BitString</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>0</Value>
+              <UIValue>Temperature over limit</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Output relay state</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Maximum current</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>3</Value>
+              <UIValue>Harmonics limit</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>Sag limit</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>5</Value>
+              <UIValue>Swell limit</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+  </ObisCodes>
+  <Standard>3</Standard>
+  <WebAddress>https://sensus.com/</WebAddress>
+  <Settings>
+    <GXAuthentication>
+      <Selected>true</Selected>
+      <Type>None</Type>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>Low</Type>
+      <ClientAddress>4</ClientAddress>
+      <ClientID xsi:type="xsd:int">4</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>High</Type>
+      <ClientAddress>11</ClientAddress>
+      <ClientID xsi:type="xsd:int">11</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <ClientAddress>11</ClientAddress>
+      <ClientID xsi:type="xsd:int">11</ClientID>
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <Selected>true</Selected>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>1</HDLCAddress>
+      <Formula>SN%10000+1000</Formula>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+  <SystemTitle />
+  <BlockCipherKey />
+  <AuthenticationKey />
+</GXManufacturer>

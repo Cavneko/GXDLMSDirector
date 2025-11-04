@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>CLE</Identification>
+  <Name>Shen Zhen Clou Electronics Co Ltd</Name>
+  <ObisCodes />
+  <WebAddress />
+  <Info>Guangdong
+China
+</Info>
+  <Settings>
+    <GXAuthentication>
+      <Type>None</Type>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>Low</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <ClientAddress>3</ClientAddress>
+      <ClientID xsi:type="xsd:int">3</ClientID>
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+</GXManufacturer>

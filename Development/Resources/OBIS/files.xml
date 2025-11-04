@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<Files>
+  <File Modified="05-03-2024" Name="Iskraemeco">isk.obx</File>
+  <File Modified="24-06-2025" Name="Landis+Gyr">lgz.obx</File>
+  <File Modified="13-10-2017" Name="Kamstrup">kam.obx</File>
+  <File Modified="17-12-2021" Name="Actaris Electricity">ace.obx</File>
+  <File Modified="09-03-2012" Name="Actaris Gas">acg.obx</File>
+  <File Modified="09-03-2012" Name="Actaris Water and Heat">acw.obx</File>
+  <File Modified="01-12-2020" Name="EMH metering GmbH">emh.obx</File>
+  <File Modified="21-09-2020" Name="Elster Electricity LLC">ele.obx</File>
+  <File Modified="24-02-2021" Name="Gurux Ltd.">grx.obx</File>
+  <File Modified="10-04-2012" Name="Janz Contadores de Energia SA">jce.obx</File>
+  <File Modified="05-03-2021" Name="Xemex NV, B-2900 Schoten">xmx.obx</File>
+  <File Modified="22-12-2022" Name="Elgama-Elektronika Ltd">egm.obx</File>
+  <File Modified="06-03-2016" Name="Texas Instruments">tis.obx</File>
+  <File Modified="18-03-2015" Name="EDMI Pty. Ltd." >edm.obx</File>
+  <File Modified="02-07-2015" Name="Mikroelektronika a.d">mel.obx</File>
+  <File Modified="11-04-2025" Name="Indian Standard">ind.obx</File>
+  <File Modified="02-12-2016" Name="Samgas s.r.l.">smg.obx</File>
+  <File Modified="19-12-2016" Name="ZIV Aplicaciones y Tecnologia, S.A">ziv.obx</File>
+  <File Modified="03-12-2024" Name="Holley Metering Ltd">hly.obx</File>
+  <File Modified="12-12-2024" Name="Hexing Electrical Co. Ltd">hxe.obx</File>
+  <File Modified="09-11-2018" Name="Saudi Electricity Company">sec.obx</File>
+  <File Modified="09-11-2020" Name="Italian Standard">itl.obx</File>
+  <File Modified="09-11-2018" Name="Sensus Metering Systems">sen.obx</File>
+  <File Modified="11-01-2019" Name="Cewe Instrument AB">cwi.obx</File>
+  <File Modified="23-04-2025" Name="Genus Power Infrastructures Ltd.">goe.obx</File>
+  <File Modified="07-02-2019" Name="Secure Meters Limited.">ehl.obx</File>
+  <File Modified="07-02-2019" Name="Larsen &amp; Toubro Ltd.">lnt.obx</File>
+  <File Modified="28-07-2020" Name="Sagemcom Energy &amp; Telecom">set.obx</File>
+  <File Modified="21-03-2025" Name="Sagemcom Energy &amp; Telecom (SAG)">sag.obx</File>
+  <File Modified="01-09-2020" Name="ZenMeter Solutions Pvt. Ltd.">zen.obx</File>
+  <File Modified="18-09-2020" Name="Shen Zhen Clou Electronics Co Ltd.">cle.obx</File>
+  <File Modified="21-09-2020" Name="Wasion Group Co.Ltd.">wse.obx</File>
+  <File Modified="21-09-2020" Name="MeteRSit S.r.L.">mts.obx</File>
+  <File Modified="10-09-2021" Name="Ningbo Sanxing Smart Electric Co.">_aux.obx</File>
+  <File Modified="05-10-2020" Name="Shenzhen Star Instrument Co Ltd">sta.obx</File>
+  <File Modified="30-06-2022" Name="Shenzhen Kaifa Technology Chengdu Co.">kfm.obx</File>
+  <File Modified="15-02-2022" Name="Hangzhou Meteronic Technology Co., Ltd.">hmt.obx</File>
+  <File Modified="22-03-2022" Name="MetCom Solutions GmbH">mcs.obx</File>
+  <File Modified="16-08-2023" Name="Goldcard Smart Group Co.,Ltd.">gcg.obx</File>
+  <File Modified="22-03-2024" Name="SenseMi Metering (EnergyClouds)">sed.obx</File>
+</Files>

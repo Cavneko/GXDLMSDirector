@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>grx</Identification>
+  <Name>Gurux</Name>
+  <UseLN>true</UseLN>
+  <ObisCodes>
+    <GXObisCode>
+      <LogicalName>0.0.96.11.0.255</LogicalName>
+      <Description>Ch. 0 Event code  #1</Description>
+      <Interface>Data</Interface>
+      <ObjectType>1</ObjectType>
+      <Attributes>
+        <GXDLMSAttributeSettings>
+          <Name>Event code</Name>
+          <Index>2</Index>
+          <Type>UInt16</Type>
+          <Access>1</Access>
+          <Values>
+            <GXObisValueItem>
+              <Value>1</Value>
+              <UIValue>Power Up</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>2</Value>
+              <UIValue>Time change</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>4</Value>
+              <UIValue>DST</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>8</Value>
+              <UIValue>Push</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>16</Value>
+              <UIValue>Auto Connect</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>32</Value>
+              <UIValue>Password changed</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>64</Value>
+              <UIValue>Wrong password</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>128</Value>
+              <UIValue>Output relay state</UIValue>
+            </GXObisValueItem>
+            <GXObisValueItem>
+              <Value>256</Value>
+              <UIValue>Global meter reset</UIValue>
+            </GXObisValueItem>
+          </Values>
+          <UIValueType>3</UIValueType>
+          <AccessSelector>0</AccessSelector>
+        </GXDLMSAttributeSettings>
+      </Attributes>
+    </GXObisCode>
+    <GXObisCode>
+      <LogicalName>1.0.99.98.0.255</LogicalName>
+      <Description>Ch. 0 Event log  #1</Description>
+      <Interface>ProfileGeneric</Interface>
+      <ObjectType>7</ObjectType>
+      <Attributes />
+    </GXObisCode>
+  </ObisCodes>
+  <StartProtocol>DLMS</StartProtocol>
+  <WebAddress />
+  <Settings>
+    <GXAuthentication>
+      <Type>None</Type>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>Low</Type>
+      <ClientAddress>17</ClientAddress>
+      <ClientID xsi:type="xsd:int">17</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>High</Type>
+      <ClientAddress>18</ClientAddress>
+      <ClientID xsi:type="xsd:int">18</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighMD5</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighSHA1</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighSHA256</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighECDSA</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>1</HDLCAddress>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>2</HDLCAddress>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+  <SystemTitle>QUJDREVGR0g=</SystemTitle>
+  <BlockCipherKey>AAECAwQFBgcICQoLDA0ODw==</BlockCipherKey>
+  <AuthenticationKey>0NHS09TV1tfY2drb3N3e3w==</AuthenticationKey>
+  <SupporterdInterfaces>119</SupporterdInterfaces>
+</GXManufacturer>

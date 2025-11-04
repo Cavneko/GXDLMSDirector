@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>KFM</Identification>
+  <Name>Shenzhen Kaifa Technology Chengdu Co.</Name>
+  <UseLN>true</UseLN>
+  <ObisCodes />
+  <WebAddress />
+  <Address>CiAgICBMdGQuCiAgICBOby4xMjE4IEhlenVvIFJkLgogICAgSGktVGVjaCBEZXZlbG9wbWVudCBab25lIChXZXN0KQogICAgQ2hlbmdkdQogICAgUC5SLkMuIFAuQzogNjExNzMwKEFmZmlsaWF0ZSkgU2hlbnpoZW4gS2FpZmEgVGVjaG5vbG9neSBDby4KICAgIEx0ZC43MDA2IENhaXRpYW4gUmQKICAgIEZ1dGlhbiBEaXN0LgogICAgU2hlbnpoZW4KICAgIENoaW5hLlAuQy41MTgwMzUKICA=</Address>
+  <Settings>
+    <GXAuthentication>
+      <Type>None</Type>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>Low</Type>
+      <ClientAddress>2</ClientAddress>
+      <ClientID xsi:type="xsd:int">2</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>High</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <ClientAddress>1</ClientAddress>
+      <ClientID xsi:type="xsd:int">1</ClientID>
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+</GXManufacturer>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GXManufacturer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identification>SET</Identification>
+  <Name>Sagemcom Energy &amp; Telecom</Name>
+  <UseLN>true</UseLN>
+  <ObisCodes />
+  <StartProtocol>DLMS</StartProtocol>
+  <WebAddress>http://www.sagemcom.com</WebAddress>
+  <Info>MjUwIHJvdXRlIGRlIGxcJ0VtcGVyZXVyDQo5MjUwMCBSVUVJTCBNQUxNQUlTT04NCkZyYW5jZQ==</Info>
+  <Settings>
+    <GXAuthentication>
+      <Type>None</Type>
+      <ClientAddress>16</ClientAddress>
+      <ClientID xsi:type="xsd:int">16</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>Low</Type>
+      <ClientAddress>17</ClientAddress>
+      <ClientID xsi:type="xsd:int">17</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>High</Type>
+      <ClientAddress>18</ClientAddress>
+      <ClientID xsi:type="xsd:int">18</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighMD5</Type>
+      <ClientAddress>19</ClientAddress>
+      <ClientID xsi:type="xsd:int">19</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighSHA1</Type>
+      <ClientAddress>20</ClientAddress>
+      <ClientID xsi:type="xsd:int">20</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighGMAC</Type>
+      <ClientAddress>20</ClientAddress>
+      <ClientID xsi:type="xsd:int">20</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighSHA256</Type>
+      <ClientAddress>20</ClientAddress>
+      <ClientID xsi:type="xsd:int">20</ClientID>
+      <Password />
+    </GXAuthentication>
+    <GXAuthentication>
+      <Type>HighECDSA</Type>
+      <ClientAddress>20</ClientAddress>
+      <ClientID xsi:type="xsd:int">20</ClientID>
+      <Password />
+    </GXAuthentication>
+  </Settings>
+  <ServerSettings>
+    <GXServerAddress>
+      <HDLCAddress>0</HDLCAddress>
+      <Formula />
+      <PhysicalAddress>16</PhysicalAddress>
+      <LogicalAddress>1</LogicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>1</HDLCAddress>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+    <GXServerAddress>
+      <HDLCAddress>2</HDLCAddress>
+      <PhysicalAddress>1</PhysicalAddress>
+    </GXServerAddress>
+  </ServerSettings>
+  <ManucatureSettings>0</ManucatureSettings>
+  <SystemTitle />
+  <BlockCipherKey />
+  <AuthenticationKey />
+</GXManufacturer>

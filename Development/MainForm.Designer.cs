@@ -1293,8 +1293,8 @@ namespace GXDLMSDirector
             // 
             this.updateManufactureSettingsToolStripMenuItem.Name = "updateManufactureSettingsToolStripMenuItem";
             this.updateManufactureSettingsToolStripMenuItem.Size = new System.Drawing.Size(219, 20);
-            this.updateManufactureSettingsToolStripMenuItem.Text = "New Manufacture Settings Available...";
-            this.updateManufactureSettingsToolStripMenuItem.ToolTipText = "Update new manufacturer settings.";
+            this.updateManufactureSettingsToolStripMenuItem.Text = "Reload Manufacturer Settings";
+            this.updateManufactureSettingsToolStripMenuItem.ToolTipText = "Reload manufacturer and OBIS definitions from bundled resources.";
             this.updateManufactureSettingsToolStripMenuItem.Visible = false;
             this.updateManufactureSettingsToolStripMenuItem.Click += new System.EventHandler(this.updateManufactureSettingsToolStripMenuItem_Click);
             // 

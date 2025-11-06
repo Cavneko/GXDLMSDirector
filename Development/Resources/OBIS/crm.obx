@@ -34,7 +34,7 @@
     </GXObisCode>
     <GXObisCode>
       <LogicalName>1.0.99.1.0.255</LogicalName>
-      <Description>Daild load profile</Description>
+      <Description>Daily load profile</Description>
       <Interface>ProfileGeneric</Interface>
       <ObjectType>7</ObjectType>
       <Attributes />
